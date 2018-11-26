@@ -4,6 +4,7 @@ import HeadingBar from './components/HeadingBar';
 import TopicSelector from './components/TopicSelector';
 import { Router } from '@reach/router';
 import ArticlesContainer from './components/ArticlesContainer';
+import TopicContainer from './components/TopicContainer';
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
       <HeadingBar/>
       <TopicSelector />
       <Router className="mainBody">
-        <ArticlesContainer className="ArticlesContainer" path='/'/>
+        <ArticlesContainer path='/'/>
+        <TopicContainer path='/topics/:topic_slug/articles' />
       </Router>
       </div>
     );

@@ -8,7 +8,7 @@ class TopicSelector extends Component {
       <section className="TopicSelector">
         <h3>Topics</h3>
         <nav>
-          <Link className="topicLink" to='/topics/:topic/articles'>I am a Topic Name</Link>
+          <Link className="topicLink" to='/topics/topic/articles'>I am a Topic Name</Link>
         </nav>
       </section>
     );

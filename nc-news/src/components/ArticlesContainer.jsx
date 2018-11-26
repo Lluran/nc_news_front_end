@@ -5,7 +5,7 @@ import ArticleMini from './ArticleMini';
 class ArticlesContainer extends Component {
   render() {
     return (
-      <main>
+      <main className="ArticlesContainer" >
         <ArticleMini/>
         <ArticleMini/>
       </main>
