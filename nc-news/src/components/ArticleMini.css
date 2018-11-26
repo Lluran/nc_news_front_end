@@ -1,0 +1,25 @@
+.articleMini {
+  border: purple 3px solid;
+  text-align: center;
+}
+
+.topicName {
+  display: inline-block;
+}
+
+.author {
+  display: inline-block;
+}
+
+.commentcount {
+  display: inline-block;
+}
+
+.votecount {
+  display: inline-block;
+}
+
+.articleTitle {
+  display: block;
+  border: pink solid 3px;
+}

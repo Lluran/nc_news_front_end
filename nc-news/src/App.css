@@ -1,33 +1,45 @@
-/* .App {
+.App {
   height: 100vh;
-  text-align: center;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 2fr 1fr 10fr;
   grid-template-areas:
-  'header header'
-  'nav nav'
-  'sidebar main';
+   'HeadingBar HeadingBar' 
+   'TopicSelector mainBody'
+  ;
 }
 
-header {
-  border: red 3px solid;
-  grid-area: header;
+img {
+  max-height: 100%;
+  max-width: 5%;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-main {
-  border: green 3px solid;
-  grid-area: main;
+form {
+  display: inline-block;
+  vertical-align: middle;
 }
 
-section {
-  border: yellow 3px solid;
-  grid-area: sidebar;
+.HeadingBar {
+  grid-area: HeadingBar;
+  border: 3px red solid;
+  vertical-align: middle;
 }
 
-nav {
-  border: blue 3px solid;
-  grid-area: nav;
-} */
+.TopicSelector {
+  grid-area: TopicSelector;
+  border: 3px blue solid;
+}
+
+.mainBody {
+  grid-area: mainBody;
+  border: solid 3px yellow;
+}
+
+.topicLink {
+  border: green solid 3px;
+}
+
 
 /* Reach Router embeds components in a div. This wont inherit the grid references. To overcome this, we can pass a className to the router and then style it appropriately. */

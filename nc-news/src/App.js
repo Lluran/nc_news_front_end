@@ -10,9 +10,9 @@ class App extends Component {
     return (
       <div className="App">
       <HeadingBar/>
-      <TopicSelector/>
-      <Router>
-        <ArticlesContainer path='/'/>
+      <TopicSelector />
+      <Router className="mainBody">
+        <ArticlesContainer className="ArticlesContainer" path='/'/>
       </Router>
       </div>
     );

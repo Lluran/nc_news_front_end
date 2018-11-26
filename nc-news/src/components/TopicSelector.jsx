@@ -5,10 +5,10 @@ import {Router, Link} from '@reach/router'
 class TopicSelector extends Component {
   render() {
     return (
-      <section>
+      <section className="TopicSelector">
         <h3>Topics</h3>
         <nav>
-          <Link to='/topics/:topic/articles'>I am a Topic Name</Link>
+          <Link className="topicLink" to='/topics/:topic/articles'>I am a Topic Name</Link>
         </nav>
       </section>
     );

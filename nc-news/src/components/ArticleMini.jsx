@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from '@reach/router'
+import {Link} from '@reach/router';
+import './ArticleMini.css';
 
 const ArticleMini = props => {
   return (
-    <article>
-      <h3>Topic Name</h3>
-      <h3>Author</h3>
-      <Link to='articles/:article_id'>Article Title</Link>
-      <p>Comment Count</p>
-      <p>Vote Count</p>
+    <article className="articleMini">
+      <h3 className="topicName">Topic Name</h3>
+      <h3 className="author">Author</h3>
+      <p className="commentcount">Comment Count</p>
+      <p className="votecount">Vote Count</p>
+      <Link className="articleTitle" to='articles/:article_id'>Article Title</Link>
     </article>
   );
 };
