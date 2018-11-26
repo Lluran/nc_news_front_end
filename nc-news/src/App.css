@@ -1,0 +1,33 @@
+/* .App {
+  height: 100vh;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 2fr 1fr 10fr;
+  grid-template-areas:
+  'header header'
+  'nav nav'
+  'sidebar main';
+}
+
+header {
+  border: red 3px solid;
+  grid-area: header;
+}
+
+main {
+  border: green 3px solid;
+  grid-area: main;
+}
+
+section {
+  border: yellow 3px solid;
+  grid-area: sidebar;
+}
+
+nav {
+  border: blue 3px solid;
+  grid-area: nav;
+} */
+
+/* Reach Router embeds components in a div. This wont inherit the grid references. To overcome this, we can pass a className to the router and then style it appropriately. */
