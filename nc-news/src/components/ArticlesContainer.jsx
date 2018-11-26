@@ -5,10 +5,10 @@ import ArticleMini from './ArticleMini';
 class ArticlesContainer extends Component {
   render() {
     return (
-      <main className="ArticlesContainer" >
+      <section className="ArticlesContainer" >
         <ArticleMini/>
         <ArticleMini/>
-      </main>
+      </section>
     );
   }
 }

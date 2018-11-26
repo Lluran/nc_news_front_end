@@ -5,6 +5,8 @@ import TopicSelector from './components/TopicSelector';
 import { Router } from '@reach/router';
 import ArticlesContainer from './components/ArticlesContainer';
 import TopicContainer from './components/TopicContainer';
+import ArticleContainer from './components/ArticleContainer';
+import UserInfo from './components/UserInfo';
 
 class App extends Component {
   render() {
@@ -15,6 +17,8 @@ class App extends Component {
       <Router className="mainBody">
         <ArticlesContainer path='/'/>
         <TopicContainer path='/topics/:topic_slug/articles' />
+        <ArticleContainer path='/articles/:article_id'/>
+        <UserInfo path='/users/:username' />
       </Router>
       </div>
     );
