@@ -4,9 +4,13 @@ import Comment from './Comment';
 
 class CommentsContainer extends Component {
   render() {
+    const {comments} = this.props;
     return (
       <section>
-        <Comment />
+        {comments.map(commentObj => {
+          return <Comment key={commentObj._id} comment={commentObj}/>
+        })}
+        
       </section>
     );
   }

@@ -7,27 +7,30 @@ import * as api from '../api'
 
 class ArticleContainer extends Component {
   state = {
-    article: {}
+    article: {},
+    comments: []
   }
   render() {
-    const {article} = this.state;
+    const {article, comments} = this.state;
     const {article_id} = this.props;
     return (
       <section>
         {article._id && (<ArticleMini article={article} article_id={article_id}/>)}
         <CommentAdder/>
-        <CommentsContainer/>
+        {article._id &&  (<CommentsContainer comments={comments}/>)}
       </section>
     );
   }
 
   componentDidMount () {
-    api.getArticleByID(this.props.article_id)
-    .then(article => {
-      this.setState({
-        article
-      })
+    return Promise.all([api.getArticleByID(this.props.article_id), api.getArticleComments(this.props.article_id)])
+    .then(([article, comments]) => {
+       this.setState({
+         article,
+         comments
+       })
     })
+
   }
 }
 

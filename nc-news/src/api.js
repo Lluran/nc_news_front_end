@@ -20,4 +20,9 @@ export const getArticlesByTopic = async (slug) => {
 export const getArticleByID = async (id) => {
   const {data} = await axios.get(`${BASE_URL}/articles/${id}`);
   return data.article;
+};
+
+export const getArticleComments = async (id) => {
+  const {data} = await axios.get(`${BASE_URL}/articles/${id}/comments`);
+  return data.comments;
 }
