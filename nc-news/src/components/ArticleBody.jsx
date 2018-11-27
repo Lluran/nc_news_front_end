@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ArticleBody = props => {
   return (
     <p>
-      Text of Article goes here
+      {props.body}
     </p>
   );
 };

@@ -11,7 +11,6 @@ const ArticleMini = props => {
   const dateCreated = new Date(Date.parse(created_at)).toDateString();
   
   return (
-    
     <article className="articleMini">
       <p className="topicName">Topic: {belongs_to}</p>
       <p className="author">Author: <Link to={`/users/${username}`}>{username}</Link></p>
@@ -19,7 +18,7 @@ const ArticleMini = props => {
       <p className="votecount">Votes: {votes}</p>
       <Link className="articleTitle" to={`/articles/${_id}`}>{title}</Link>
       <p className="dateCreated">Written on: {dateCreated}</p>
-       {props.article_id && (<ArticleBody path="/articles/:article_id"/>)}
+       {props.article_id && (<ArticleBody path="/articles/:article_id" body={body}/>)}
        {props.article_id && (<VoteAdder/>)}
     </article>
   );

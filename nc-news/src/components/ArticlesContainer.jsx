@@ -6,7 +6,6 @@ class ArticlesContainer extends Component {
   
   render() {
     const {articles} = this.props;
-    console.log(articles)
     return (
       <section className="ArticlesContainer" >
         {articles.map(article => {
