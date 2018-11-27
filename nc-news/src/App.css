@@ -2,11 +2,10 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 2fr 1fr 10fr;
+  grid-template-rows: 15% 1fr 10fr;
   grid-template-areas:
-   'HeadingBar HeadingBar' 
-   'TopicSelector mainBody'
-  ;
+    'HeadingBar HeadingBar'
+    'TopicSelector mainBody';
 }
 
 img {
@@ -40,6 +39,5 @@ form {
 .topicLink {
   border: green solid 3px;
 }
-
 
 /* Reach Router embeds components in a div. This wont inherit the grid references. To overcome this, we can pass a className to the router and then style it appropriately. */

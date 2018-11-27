@@ -21,7 +21,7 @@ class App extends Component {
       <TopicSelector />
       <Router className="mainBody">
         <ArticlesContainer articles={articles} path='/'/>
-        <TopicContainer path='/topics/:topic_slug/articles' />
+        <TopicContainer path='/topics/:slug/articles' />
         <ArticleContainer path='/articles/:article_id'/>
         <UserInfo path='/users/:username' />
       </Router>
