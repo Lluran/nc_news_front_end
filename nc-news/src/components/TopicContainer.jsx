@@ -17,14 +17,6 @@ class TopicContainer extends Component {
     );
   }
 
-  // setTopicArticles = (topic) => {
-  //   const articles = [...this.props.articles]
-  //   const relatedArticles = articles.filter(articleObj => {
-  //     return articleObj.belongs_to === topic;
-  //   });
-  //   return relatedArticles;
-  // }
-
   componentDidMount() {
     api.getArticlesByTopic(this.props.slug)
     .then(articles => {

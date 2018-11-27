@@ -18,7 +18,7 @@ const ArticleMini = props => {
       <p className="votecount">Votes: {votes}</p>
       <Link className="articleTitle" to={`/articles/${_id}`}>{title}</Link>
       <p className="dateCreated">Written on: {dateCreated}</p>
-       {props.article_id && (<ArticleBody path="/articles/:article_id" body={body}/>)}
+       {props.article_id && (<ArticleBody body={body}/>)}
        {props.article_id && (<VoteAdder/>)}
     </article>
   );
