@@ -5,7 +5,7 @@ import VoteAdder from './VoteAdder';
 class Comment extends Component {
   render() {
     const {comment} = this.props;
-    const {votes, body, created_at, created_by} = comment;
+    const {votes, body, created_at, created_by, _id} = comment;
     const {username} = created_by;
     const dateCreated = new Date(Date.parse(created_at)).toDateString();
     return (
@@ -14,8 +14,8 @@ class Comment extends Component {
         <p>Written by: {username}</p>
         <p>{dateCreated}</p>
         <p>Votes: {votes}</p>
-        <button type="button">Delete Comment</button>
-        <VoteAdder/>
+        <button type="button" id={_id}>Delete Comment</button>
+        <VoteAdder commentId={_id}/>
       </section>
     );
   }

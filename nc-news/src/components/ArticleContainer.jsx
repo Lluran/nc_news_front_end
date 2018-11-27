@@ -30,7 +30,6 @@ class ArticleContainer extends Component {
          comments
        })
     })
-
   }
 }
 
