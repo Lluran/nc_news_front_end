@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import ArticleMini from './ArticleMini';
 
 class ArticlesContainer extends Component {
+  
   render() {
+    const {articles} = this.props;
+    console.log(articles)
     return (
       <section className="ArticlesContainer" >
-        <ArticleMini/>
-        <ArticleMini/>
+        {articles.map(article => {
+          return <ArticleMini key={article._id} article={article} />
+        })}
       </section>
     );
   }

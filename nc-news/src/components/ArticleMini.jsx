@@ -6,14 +6,19 @@ import ArticleBody from './ArticleBody';
 import VoteAdder from './VoteAdder';
 
 const ArticleMini = props => {
+  const {belongs_to, body, comment_count, created_at, created_by, title, votes, _id} = props.article;
+  const {username} = created_by;
+  const dateCreated = new Date(Date.parse(created_at)).toDateString();
+  
   return (
     
     <article className="articleMini">
-      <h3 className="topicName">Topic Name</h3>
-      <Link to='/users/:username'><h3 className="author">Author</h3></Link>
-      <p className="commentcount">Comment Count</p>
-      <p className="votecount">Vote Count</p>
-      <Link className="articleTitle" to='/articles/:article_id'>Article Title</Link>
+      <p className="topicName">Topic: {belongs_to}</p>
+      <p className="author">Author: <Link to={`/users/${username}`}>{username}</Link></p>
+      <p className="commentcount">Comments: {comment_count}</p>
+      <p className="votecount">Votes: {votes}</p>
+      <Link className="articleTitle" to={`/articles/${_id}`}>{title}</Link>
+      <p className="dateCreated">Written on: {dateCreated}</p>
        {props.article_id && (<ArticleBody path="/articles/:article_id"/>)}
        {props.article_id && (<VoteAdder/>)}
     </article>
