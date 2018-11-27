@@ -35,19 +35,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const _id = localStorage.getItem('userID')
     api.getArticles().then(articles => {
       this.setState({
-        articles
+        articles,
+        _id
       });
     });
-    //possibly check local storage for user
   }
 
   login = _id => {
+    localStorage.setItem('userID', _id)
     this.setState({
       _id
     });
-    //possibly add to local storage
   };
 }
 
