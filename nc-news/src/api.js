@@ -27,7 +27,12 @@ export const getArticleComments = async (id) => {
   return data.comments;
 };
 
-export const login = async (username) => {
+export const getUser = async (username) => {
   const {data} = await axios.get(`${BASE_URL}/users/${username}`);
   return data.user;
 };
+
+export const postArticle = async (article, topic) => {
+  const {data} = await axios.post(`${BASE_URL}/topics/${topic}/articles`, article);
+  return data.insertedArticle;
+}

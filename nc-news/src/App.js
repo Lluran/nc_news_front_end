@@ -9,17 +9,17 @@ import ArticleContainer from './components/ArticleContainer';
 import UserInfo from './components/UserInfo';
 import * as api from './api';
 import NewLogin from './components/NewLogin';
+import AddArticle from './components/AddArticle';
 
 class App extends Component {
   state = {
     articles: [],
-    user: {}
+    _id: ''
   };
   render() {
-    const { articles } = this.state;
+    const { articles, _id } = this.state;
     return (
       <div className="App">
-        {/* <NewLogin login={this.login} user={this.state.user}> */}
           <HeadingBar />
           <TopicSelector />
           <Router className="mainBody">
@@ -27,8 +27,9 @@ class App extends Component {
             <TopicContainer path="/topics/:slug/articles" />
             <ArticleContainer path="/articles/:article_id" />
             <UserInfo articles={articles} path="/users/:username" />
+            <AddArticle user={_id} path="/:slug/articles/post"/>
+            <NewLogin login={this.login} path="/login"/>
           </Router>
-        {/* </NewLogin> */}
       </div>
     );
   }
@@ -42,12 +43,14 @@ class App extends Component {
     //possibly check local storage for user
   }
 
-  login = user => {
+  login = _id => {
     this.setState({
-      user
+      _id
     });
     //possibly add to local storage
   };
 }
+
+// 5be5a46204b14900162046c7
 
 export default App;

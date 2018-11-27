@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
+import {navigate} from '@reach/router';
 
 class NewLogin extends Component {
   state = {
-    username: ''
+    username: '',
+    attempts: 0
   };
   render() {
-    console.log(this.props.user);
-    if (this.props.user.username) return this.props.children;
     return (
       <form onSubmit={this.handleSubmit}>
+        <h2>Login: </h2>
+        {this.state.attempts > 0 && (<h3>Login attempt failed. Incorrect username.</h3>)}
         <label htmlFor="username">Username: </label>
-        <input id="username" type="text" onChange={this.handleChange} />
+        <input id="username" type="text" onChange={this.handleChange} value={this.state.username}/>
         <button>Log in</button>
       </form>
     );
@@ -27,9 +29,20 @@ class NewLogin extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    api.login(this.state.username).then(user => {
-      this.props.login(user);
-    });
+    api.getUser(this.state.username).then(user => {
+      if (user._id) {
+        this.props.login(user._id);
+        navigate(`/users/${user.username}`, {replace: true});
+      }
+    })
+    .catch(() => {
+        this.setState((state) => {
+          return {
+            username: '',
+            attempts: state.attempts + 1
+          }
+        })
+    })
   };
 }
 

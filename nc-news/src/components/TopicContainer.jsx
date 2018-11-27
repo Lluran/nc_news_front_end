@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ArticlesContainer from './ArticlesContainer';
 import * as api from '../api';
+import {Link} from '@reach/router';
 
 class TopicContainer extends Component {
   state = {
@@ -9,9 +10,15 @@ class TopicContainer extends Component {
   };
   render() {
     const {relatedArticles} = this.state;
+    const {slug} = this.props
     return (
       <main>
-        <h2>Topic Heading Goes Here</h2>
+        <section>
+          <h2>{slug}</h2>
+          <Link to={`/${slug}/articles/post`}>
+          <input type="button" value={`Write an article about ${slug}!`}/>
+          </Link>
+          </section>
         <ArticlesContainer articles={relatedArticles}/>
       </main>
     );
