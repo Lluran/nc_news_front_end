@@ -57,6 +57,9 @@ class CommentAdder extends Component {
     };
     api.addComment(url, newComment).then(postedComment => {
       this.props.quickShowNewComment(postedComment);
+      this.setState({
+        body: ''
+      });
     });
   };
 }
