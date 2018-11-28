@@ -44,6 +44,9 @@ export const patchVote = async (url) => {
 
 export const deleteData = async (url) => {
  const {data} = await axios.delete(`${BASE_URL}${url}`);
- console.log(data);
  return data;
+};
+export const addComment = async (url, newComment) => {
+  const {data} = await axios.post(`${BASE_URL}${url}`, newComment);
+  return data.comment;
 }

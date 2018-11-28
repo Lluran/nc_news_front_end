@@ -26,7 +26,7 @@ class App extends Component {
         <Router className="mainBody">
           <ArticlesContainer articles={articles} path="/" />
           <TopicContainer path="/topics/:slug/articles" />
-          <ArticleContainer path="/articles/:article_id" />
+          <ArticleContainer user={user} path="/articles/:article_id" />
           <UserInfo articles={articles} path="/users/:username" />
           <AddArticle user={_id} path="/:slug/articles/post" />
           <NewLogin login={this.login} path="/login" />

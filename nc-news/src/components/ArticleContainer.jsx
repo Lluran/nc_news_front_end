@@ -12,11 +12,11 @@ class ArticleContainer extends Component {
   }
   render() {
     const {article, comments} = this.state;
-    const {article_id} = this.props;
+    const {article_id, user} = this.props;
     return (
       <section>
         {article._id && (<ArticleMini article={article} article_id={article_id} ammendArticle={this.ammendArticle}/>)}
-        <CommentAdder/>
+        {user.length > 0 && (<CommentAdder quickShowNewComment={this.quickShowNewComment} article_id={article_id}/>)}
         {article._id &&  (<CommentsContainer comments={comments} ammendComment={this.ammendComment} />)}
       </section>
     );
@@ -25,7 +25,6 @@ class ArticleContainer extends Component {
   componentDidMount () {
     return Promise.all([api.getArticleByID(this.props.article_id), api.getArticleComments(this.props.article_id)])
     .then(([article, comments]) => {
-      console.log('hello')
        this.setState({
          article,
          comments
@@ -74,6 +73,13 @@ class ArticleContainer extends Component {
   this.setState({
    article: updatedArticle
   })
+  }
+
+  quickShowNewComment = (newComment) => {
+   const updatedComments = [newComment, ...this.state.comments];
+   this.setState({
+     comments: updatedComments
+   })
   }
 }
 
