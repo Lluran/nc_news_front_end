@@ -40,4 +40,10 @@ export const postArticle = async (article, topic) => {
 export const patchVote = async (url) => {
   const {data} = await axios.patch(`${BASE_URL}${url}`);
  return data;
+};
+
+export const deleteData = async (url) => {
+ const {data} = await axios.delete(`${BASE_URL}${url}`);
+ console.log(data);
+ return data;
 }

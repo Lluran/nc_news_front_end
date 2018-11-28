@@ -14,28 +14,29 @@ import AddArticle from './components/AddArticle';
 class App extends Component {
   state = {
     articles: [],
-    _id: ''
+    _id: '',
+    user: ''
   };
   render() {
     const { articles, _id } = this.state;
     return (
       <div className="App">
-          <HeadingBar />
-          <TopicSelector />
-          <Router className="mainBody">
-            <ArticlesContainer articles={articles} path="/" />
-            <TopicContainer path="/topics/:slug/articles" />
-            <ArticleContainer path="/articles/:article_id" />
-            <UserInfo articles={articles} path="/users/:username" />
-            <AddArticle user={_id} path="/:slug/articles/post"/>
-            <NewLogin login={this.login} path="/login"/>
-          </Router>
+        <HeadingBar />
+        <TopicSelector />
+        <Router className="mainBody">
+          <ArticlesContainer articles={articles} path="/" />
+          <TopicContainer path="/topics/:slug/articles" />
+          <ArticleContainer path="/articles/:article_id" />
+          <UserInfo articles={articles} path="/users/:username" />
+          <AddArticle user={_id} path="/:slug/articles/post" />
+          <NewLogin login={this.login} path="/login" />
+        </Router>
       </div>
     );
   }
 
   componentDidMount() {
-    const _id = localStorage.getItem('userID')
+    const _id = localStorage.getItem('userID');
     api.getArticles().then(articles => {
       this.setState({
         articles,
@@ -44,10 +45,12 @@ class App extends Component {
     });
   }
 
-  login = _id => {
-    localStorage.setItem('userID', _id)
+  login = (_id, user) => {
+    localStorage.setItem('userID', _id);
+    localStorage.setItem('user', user);
     this.setState({
-      _id
+      _id,
+      user
     });
   };
 }

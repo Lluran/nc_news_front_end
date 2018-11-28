@@ -39,15 +39,18 @@ class ArticleContainer extends Component {
    const otherComments = this.state.comments.filter(commentObj => {
      return commentObj._id !== commentID;
    })
+   let updatedComments = []
    const num = direction === 'up' ? 1 : -1
    if (commentToUpdate[0].votes > 0 && num === -1) {
      commentToUpdate[0].votes += num
+     updatedComments = [commentToUpdate[0], ...otherComments]
    } else if (num === 1) {
     commentToUpdate[0].votes += num
+    updatedComments = [commentToUpdate[0], ...otherComments]
+   } else if (direction === 'delete') {
+     updatedComments = [...otherComments]
    }
 
-   const updatedComments = [commentToUpdate[0], ...otherComments]
-   
    this.setState({
      comments: updatedComments
    })

@@ -31,7 +31,7 @@ class NewLogin extends Component {
     event.preventDefault();
     api.getUser(this.state.username).then(user => {
       if (user._id) {
-        this.props.login(user._id);
+        this.props.login(user._id, user.username);
         navigate(`/users/${user.username}`, {replace: true});
       }
     })
