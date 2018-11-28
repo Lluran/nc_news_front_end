@@ -4,9 +4,18 @@ import Comment from './Comment';
 
 const CommentsContainer = props => {
   const { comments } = props;
+  const orderedComments = comments.sort((a, b) => {
+    if (Date.parse(a.created_at) > Date.parse(b.created_at)) {
+      return -1;
+    } else if (Date.parse(a.created_at) < Date.parse(b.created_at)) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
   return (
     <section>
-      {comments.map(commentObj => {
+      {orderedComments.map(commentObj => {
         return (
           <Comment
             key={commentObj._id}

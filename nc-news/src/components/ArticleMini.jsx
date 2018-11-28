@@ -40,8 +40,8 @@ const ArticleMini = props => {
 };
 
 ArticleMini.propTypes = {
-  article_id: PropTypes.string.isRequired,
-  ammendArticle: PropTypes.func.isRequired,
+  article_id: PropTypes.string,
+  ammendArticle: PropTypes.func,
   article: PropTypes.object.isRequired
 };
 

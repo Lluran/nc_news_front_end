@@ -4,6 +4,7 @@ import ArticleMini from './ArticleMini';
 import CommentAdder from './CommentAdder';
 import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
+import { Link } from '@reach/router';
 
 class ArticleContainer extends Component {
   state = {
@@ -27,6 +28,11 @@ class ArticleContainer extends Component {
             quickShowNewComment={this.quickShowNewComment}
             article_id={article_id}
           />
+        )}
+        {user.length === 0 && (
+          <p>
+            <Link to="/login">Login</Link> to post a comment!
+          </p>
         )}
         {article._id && (
           <CommentsContainer

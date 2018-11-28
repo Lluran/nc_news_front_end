@@ -13,7 +13,7 @@ const HeadingBar = props => {
         src="http://southernsynodurc.org.uk/wp-content/uploads/2015/12/News-Update-Logo.png"
         alt="News Update logo"
       />
-      {props.user.length === 0 && <p>Login to comment and post an article!</p>}
+      {props.user.length === 0 && <p>Login to comment or post an article!</p>}
       <LoginButton user={props.user} clearUser={props.clearUser} />
     </header>
   );

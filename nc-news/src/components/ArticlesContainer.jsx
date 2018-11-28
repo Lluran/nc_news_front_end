@@ -5,9 +5,18 @@ import ArticleMini from './ArticleMini';
 class ArticlesContainer extends Component {
   render() {
     const { articles } = this.props;
+    const orderedArticles = articles.sort((a, b) => {
+      if (Date.parse(a.created_at) > Date.parse(b.created_at)) {
+        return -1;
+      } else if (Date.parse(a.created_at) < Date.parse(b.created_at)) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
     return (
       <section className="ArticlesContainer">
-        {articles.map(article => {
+        {orderedArticles.map(article => {
           return <ArticleMini key={article._id} article={article} />;
         })}
       </section>
