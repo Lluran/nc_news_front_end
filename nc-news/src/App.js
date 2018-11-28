@@ -28,7 +28,11 @@ class App extends Component {
           <TopicContainer path="/topics/:slug/articles" />
           <ArticleContainer user={user} path="/articles/:article_id" />
           <UserInfo articles={articles} path="/users/:username" />
-          <AddArticle user={_id} path="/:slug/articles/post" />
+          <AddArticle
+            updateArticles={this.updateArticles}
+            user={_id}
+            path="/:slug/articles/post"
+          />
           <NewLogin login={this.login} path="/login" />
         </Router>
       </div>
@@ -53,8 +57,15 @@ class App extends Component {
     });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     console.log('updating app');
+    api.getArticles().then(freshArticles => {
+      if (freshArticles.length !== prevState.articles.length) {
+        this.setState({
+          articles: freshArticles
+        });
+      }
+    });
   }
 
   login = (_id, user) => {
@@ -73,6 +84,13 @@ class App extends Component {
       user: ''
     });
     navigate('/');
+  };
+
+  updateArticles = newArticle => {
+    const updatedArticles = [newArticle, ...this.state.articles];
+    this.setState({
+      articles: updatedArticles
+    });
   };
 }
 

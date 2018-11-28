@@ -60,14 +60,20 @@ class AddArticle extends Component {
       body: this.state.body,
       created_by: this.props.user
     };
-    api.postArticle(newArticle, this.props.slug).then(insertedArticle => {
-      navigate(`/topics/${this.props.slug}/articles`);
-    });
+    api
+      .postArticle(newArticle, this.props.slug)
+      .then(insertedArticle => {
+        navigate(`/topics/${this.props.slug}/articles`);
+      })
+      .then(postedArticle => {
+        this.props.updateArticles(postedArticle);
+      });
   };
 }
 
 AddArticle.propTypes = {
-  user: PropTypes.string.isRequired
+  user: PropTypes.string.isRequired,
+  updateArticles: PropTypes.func.isRequired
 };
 
 export default AddArticle;
