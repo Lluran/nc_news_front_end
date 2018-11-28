@@ -53,11 +53,17 @@ class ArticleContainer extends Component {
    })
   }
 
-  ammendArticle = (articleID, direction) => {
-   //spread article object from state,
-   //add direction to vote
-   //set new object as state - causes a re-render
-   console.log(articleID, direction)
+  ammendArticle = (direction) => {
+   const updatedArticle = {...this.state.article}
+   const num = direction === 'up' ? 1 : -1
+   if (updatedArticle.votes > 0 && num === -1) {
+    updatedArticle.votes += num
+  } else if (num === 1) {
+   updatedArticle.votes += num
+  }
+  this.setState({
+   article: updatedArticle
+  })
   }
 }
 
