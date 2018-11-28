@@ -15,9 +15,9 @@ class ArticleContainer extends Component {
     const {article_id} = this.props;
     return (
       <section>
-        {article._id && (<ArticleMini article={article} article_id={article_id}/>)}
+        {article._id && (<ArticleMini article={article} article_id={article_id} ammendArticle={this.ammendArticle}/>)}
         <CommentAdder/>
-        {article._id &&  (<CommentsContainer comments={comments}/>)}
+        {article._id &&  (<CommentsContainer comments={comments} ammendComment={this.ammendComment} />)}
       </section>
     );
   }
@@ -30,6 +30,34 @@ class ArticleContainer extends Component {
          comments
        })
     })
+  }
+
+  ammendComment = (commentID, direction)  => {
+   const commentToUpdate = this.state.comments.filter(commentObj => {
+     return commentObj._id === commentID;
+   });
+   const otherComments = this.state.comments.filter(commentObj => {
+     return commentObj._id !== commentID;
+   })
+   const num = direction === 'up' ? 1 : -1
+   if (commentToUpdate[0].votes > 0 && num === -1) {
+     commentToUpdate[0].votes += num
+   } else if (num === 1) {
+    commentToUpdate[0].votes += num
+   }
+
+   const updatedComments = [commentToUpdate[0], ...otherComments]
+   
+   this.setState({
+     comments: updatedComments
+   })
+  }
+
+  ammendArticle = (articleID, direction) => {
+   //spread article object from state,
+   //add direction to vote
+   //set new object as state - causes a re-render
+   console.log(articleID, direction)
   }
 }
 

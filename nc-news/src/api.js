@@ -35,4 +35,9 @@ export const getUser = async (username) => {
 export const postArticle = async (article, topic) => {
   const {data} = await axios.post(`${BASE_URL}/topics/${topic}/articles`, article);
   return data.insertedArticle;
+};
+
+export const patchVote = async (url) => {
+  const {data} = await axios.patch(`${BASE_URL}${url}`);
+ return data;
 }

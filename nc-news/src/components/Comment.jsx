@@ -15,7 +15,7 @@ class Comment extends Component {
         <p>{dateCreated}</p>
         <p>Votes: {votes}</p>
         <button type="button" id={_id}>Delete Comment</button>
-        <VoteAdder commentId={_id}/>
+        <VoteAdder ammendComment={this.props.ammendComment} commentId={_id}/>
       </section>
     );
   }

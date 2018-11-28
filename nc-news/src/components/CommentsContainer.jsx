@@ -8,7 +8,7 @@ class CommentsContainer extends Component {
     return (
       <section>
         {comments.map(commentObj => {
-          return <Comment key={commentObj._id} comment={commentObj}/>
+          return <Comment key={commentObj._id} comment={commentObj} ammendComment={this.props.ammendComment}/>
         })}
         
       </section>
