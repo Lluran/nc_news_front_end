@@ -34,12 +34,12 @@ class LoginButton extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-   const {user} = prevState
-   if (user !== this.props.user) {
-     this.setState({
-       user: this.props.user
-     })
-   } 
+    const { user } = prevState;
+    if (user !== this.props.user) {
+      this.setState({
+        user: this.props.user
+      });
+    }
   }
 
   handleLogClick = event => {
@@ -54,6 +54,9 @@ class LoginButton extends Component {
   };
 }
 
-LoginButton.propTypes = {};
+LoginButton.propTypes = {
+  user: PropTypes.string.isRequired,
+  clearUser: PropTypes.func.isRequired
+};
 
 export default LoginButton;

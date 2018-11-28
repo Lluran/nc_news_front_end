@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VoteAdder from './VoteAdder';
-import * as api from '../api'
+import * as api from '../api';
 
 class Comment extends Component {
   state = {
@@ -20,7 +20,7 @@ class Comment extends Component {
         <p>{dateCreated}</p>
         <p>Votes: {votes}</p>
         {user === username && (
-          <button type="button" id={_id} onClick={this.handleDelete} >
+          <button type="button" id={_id} onClick={this.handleDelete}>
             Delete Comment
           </button>
         )}
@@ -37,16 +37,18 @@ class Comment extends Component {
     }
   }
 
-  handleDelete = (event) => {
-   const {id} = event.target;
-   const apiUrl = `/comments/${id}`;
-   api.deleteData(apiUrl)
-   .then(data => {
-     this.props.ammendComment(id, 'delete')
-   })
-  }
+  handleDelete = event => {
+    const { id } = event.target;
+    const apiUrl = `/comments/${id}`;
+    api.deleteData(apiUrl).then(data => {
+      this.props.ammendComment(id, 'delete');
+    });
+  };
 }
 
-Comment.propTypes = {};
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+  ammendComment: PropTypes.func.isRequired
+};
 
 export default Comment;

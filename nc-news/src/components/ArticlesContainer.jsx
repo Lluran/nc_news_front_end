@@ -3,13 +3,12 @@ import PropTypes from 'prop-types';
 import ArticleMini from './ArticleMini';
 
 class ArticlesContainer extends Component {
-  
   render() {
-    const {articles} = this.props;
+    const { articles } = this.props;
     return (
-      <section className="ArticlesContainer" >
+      <section className="ArticlesContainer">
         {articles.map(article => {
-          return <ArticleMini key={article._id} article={article} />
+          return <ArticleMini key={article._id} article={article} />;
         })}
       </section>
     );
@@ -17,7 +16,7 @@ class ArticlesContainer extends Component {
 }
 
 ArticlesContainer.propTypes = {
-
+  articles: PropTypes.array.isRequired
 };
 
 export default ArticlesContainer;

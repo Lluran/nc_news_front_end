@@ -3,88 +3,109 @@ import PropTypes from 'prop-types';
 import ArticleMini from './ArticleMini';
 import CommentAdder from './CommentAdder';
 import CommentsContainer from './CommentsContainer';
-import * as api from '../api'
+import * as api from '../api';
 
 class ArticleContainer extends Component {
   state = {
     article: {},
     comments: []
-  }
+  };
   render() {
-    const {article, comments} = this.state;
-    const {article_id, user} = this.props;
+    const { article, comments } = this.state;
+    const { article_id, user } = this.props;
     return (
       <section>
-        {article._id && (<ArticleMini article={article} article_id={article_id} ammendArticle={this.ammendArticle}/>)}
-        {user.length > 0 && (<CommentAdder quickShowNewComment={this.quickShowNewComment} article_id={article_id}/>)}
-        {article._id &&  (<CommentsContainer comments={comments} ammendComment={this.ammendComment} />)}
+        {article._id && (
+          <ArticleMini
+            article={article}
+            article_id={article_id}
+            ammendArticle={this.ammendArticle}
+          />
+        )}
+        {user.length > 0 && (
+          <CommentAdder
+            quickShowNewComment={this.quickShowNewComment}
+            article_id={article_id}
+          />
+        )}
+        {article._id && (
+          <CommentsContainer
+            comments={comments}
+            ammendComment={this.ammendComment}
+          />
+        )}
       </section>
     );
   }
 
-  componentDidMount () {
-    return Promise.all([api.getArticleByID(this.props.article_id), api.getArticleComments(this.props.article_id)])
-    .then(([article, comments]) => {
-       this.setState({
-         article,
-         comments
-       })
-    }).catch(() => {
-      api.getArticleByID(this.props.article_id).then(article => {
+  componentDidMount() {
+    return Promise.all([
+      api.getArticleByID(this.props.article_id),
+      api.getArticleComments(this.props.article_id)
+    ])
+      .then(([article, comments]) => {
         this.setState({
-          article
-        })
+          article,
+          comments
+        });
       })
-    })
+      .catch(() => {
+        api.getArticleByID(this.props.article_id).then(article => {
+          this.setState({
+            article
+          });
+        });
+      });
   }
 
-  ammendComment = (commentID, direction)  => {
-   const commentToUpdate = this.state.comments.filter(commentObj => {
-     return commentObj._id === commentID;
-   });
-   const otherComments = this.state.comments.filter(commentObj => {
-     return commentObj._id !== commentID;
-   })
-   let updatedComments = []
-   const num = direction === 'up' ? 1 : -1
-   if (commentToUpdate[0].votes > 0 && num === -1) {
-     commentToUpdate[0].votes += num
-     updatedComments = [commentToUpdate[0], ...otherComments]
-   } else if (num === 1) {
-    commentToUpdate[0].votes += num
-    updatedComments = [commentToUpdate[0], ...otherComments]
-   } else if (direction === 'delete') {
-     updatedComments = [...otherComments]
-   }
+  ammendComment = (commentID, direction) => {
+    const commentToUpdate = this.state.comments.filter(commentObj => {
+      return commentObj._id === commentID;
+    });
+    const otherComments = this.state.comments.filter(commentObj => {
+      return commentObj._id !== commentID;
+    });
+    let updatedComments = [];
+    const num = direction === 'up' ? 1 : -1;
+    if (commentToUpdate[0].votes > 0 && num === -1) {
+      commentToUpdate[0].votes += num;
+      updatedComments = [commentToUpdate[0], ...otherComments];
+    } else if (num === 1) {
+      commentToUpdate[0].votes += num;
+      updatedComments = [commentToUpdate[0], ...otherComments];
+    } else if (direction === 'delete') {
+      updatedComments = [...otherComments];
+    }
 
-   this.setState({
-     comments: updatedComments
-   })
-  }
+    this.setState({
+      comments: updatedComments
+    });
+  };
 
-  ammendArticle = (direction) => {
-   const updatedArticle = {...this.state.article}
-   const num = direction === 'up' ? 1 : -1
-   if (updatedArticle.votes > 0 && num === -1) {
-    updatedArticle.votes += num
-  } else if (num === 1) {
-   updatedArticle.votes += num
-  }
-  this.setState({
-   article: updatedArticle
-  })
-  }
+  ammendArticle = direction => {
+    const updatedArticle = { ...this.state.article };
+    const num = direction === 'up' ? 1 : -1;
+    if (updatedArticle.votes > 0 && num === -1) {
+      updatedArticle.votes += num;
+    } else if (num === 1) {
+      updatedArticle.votes += num;
+    }
+    this.setState({
+      article: updatedArticle
+    });
+  };
 
-  quickShowNewComment = (newComment) => {
-   const updatedComments = [newComment, ...this.state.comments];
-   this.setState({
-     comments: updatedComments
-   })
-  }
+  quickShowNewComment = newComment => {
+    const updatedComments = [newComment, ...this.state.comments];
+    this.setState({
+      comments: updatedComments
+    });
+  };
 }
 
 ArticleContainer.propTypes = {
-
+  article_id: PropTypes.string,
+  user: PropTypes.string.isRequired
 };
 
 export default ArticleContainer;

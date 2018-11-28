@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const User = props => {
-  const {avatar_url, name, username} = props.user;
+  const { avatar_url, name, username } = props.user;
   return (
     <section>
-      <img src={`${avatar_url}`} alt='user avatar' />
+      <img src={`${avatar_url}`} alt="user avatar" />
       <p>Username: {username}</p>
       <p>Name: {name}</p>
     </section>
@@ -13,7 +13,7 @@ const User = props => {
 };
 
 User.propTypes = {
-  
+  user: PropTypes.object.isRequired
 };
 
 export default User;

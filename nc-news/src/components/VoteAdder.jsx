@@ -55,6 +55,11 @@ class VoteAdder extends Component {
   };
 }
 
-VoteAdder.propTypes = {};
+VoteAdder.propTypes = {
+  commentId: PropTypes.string,
+  articleId: PropTypes.string,
+  ammendArticle: PropTypes.func,
+  ammendComment: PropTypes.func
+};
 
 export default VoteAdder;

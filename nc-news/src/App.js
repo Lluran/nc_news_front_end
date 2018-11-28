@@ -18,10 +18,10 @@ class App extends Component {
     user: ''
   };
   render() {
-    const { articles, _id, user} = this.state;
+    const { articles, _id, user } = this.state;
     return (
       <div className="App">
-        <HeadingBar user={user} clearUser={this.clearUser}/>
+        <HeadingBar user={user} clearUser={this.clearUser} />
         <TopicSelector />
         <Router className="mainBody">
           <ArticlesContainer articles={articles} path="/" />
@@ -53,8 +53,8 @@ class App extends Component {
     });
   }
 
-  componentDidUpdate () {
-    console.log('updating app')
+  componentDidUpdate() {
+    console.log('updating app');
   }
 
   login = (_id, user) => {
@@ -71,11 +71,9 @@ class App extends Component {
     this.setState({
       _id: '',
       user: ''
-    })
-    navigate('/')
-  }
+    });
+    navigate('/');
+  };
 }
-
-// 5be5a46204b14900162046c7
 
 export default App;
