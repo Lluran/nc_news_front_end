@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import HeadingBar from './components/HeadingBar';
 import TopicSelector from './components/TopicSelector';
-import { Router } from '@reach/router';
+import { Router, navigate } from '@reach/router';
 import ArticlesContainer from './components/ArticlesContainer';
 import TopicContainer from './components/TopicContainer';
 import ArticleContainer from './components/ArticleContainer';
@@ -18,10 +18,10 @@ class App extends Component {
     user: ''
   };
   render() {
-    const { articles, _id } = this.state;
+    const { articles, _id, user} = this.state;
     return (
       <div className="App">
-        <HeadingBar />
+        <HeadingBar user={user} clearUser={this.clearUser}/>
         <TopicSelector />
         <Router className="mainBody">
           <ArticlesContainer articles={articles} path="/" />
@@ -36,23 +36,44 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const _id = localStorage.getItem('userID');
+    const _id = sessionStorage.getItem('userID');
+    const user = sessionStorage.getItem('user');
     api.getArticles().then(articles => {
-      this.setState({
-        articles,
-        _id
-      });
+      if (_id !== null) {
+        this.setState({
+          articles,
+          user,
+          _id
+        });
+      } else {
+        this.setState({
+          articles
+        });
+      }
     });
   }
 
+  componentDidUpdate () {
+    console.log('updating app')
+  }
+
   login = (_id, user) => {
-    localStorage.setItem('userID', _id);
-    localStorage.setItem('user', user);
+    sessionStorage.setItem('userID', _id);
+    sessionStorage.setItem('user', user);
     this.setState({
       _id,
       user
     });
   };
+
+  clearUser = () => {
+    sessionStorage.clear();
+    this.setState({
+      _id: '',
+      user: ''
+    })
+    navigate('/')
+  }
 }
 
 // 5be5a46204b14900162046c7

@@ -10,7 +10,7 @@ class CommentsContainer extends Component {
         {comments.map(commentObj => {
           return <Comment key={commentObj._id} comment={commentObj} ammendComment={this.props.ammendComment}/>
         })}
-        
+        {comments.length === 0 && <p>Be the first to comment on this article!</p> }
       </section>
     );
   }

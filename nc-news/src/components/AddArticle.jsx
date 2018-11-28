@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
-import {navigate} from '@reach/router'
+import {navigate, Link} from '@reach/router'
 
 class AddArticle extends Component {
   state = {
@@ -9,10 +9,11 @@ class AddArticle extends Component {
     body: ''
   };
   render() {
+    const {user} = this.props
     return (
       <main>
         <h2>Post a New Article</h2>
-        <form action="" onSubmit={this.handleSubmit}>
+        {user.length > 0 && (<form action="" onSubmit={this.handleSubmit}>
           <label htmlFor="titleInput">Title: </label>
           <input
             type="text"
@@ -33,7 +34,8 @@ class AddArticle extends Component {
             Write your article here!
           </textarea>
           <button type="submit">Post Article!</button>
-        </form>
+        </form>)}
+        {user.length === 0 && <p>You need to <Link to='/login'>login</Link> to post an article!</p>}
       </main>
     );
   }

@@ -25,10 +25,17 @@ class ArticleContainer extends Component {
   componentDidMount () {
     return Promise.all([api.getArticleByID(this.props.article_id), api.getArticleComments(this.props.article_id)])
     .then(([article, comments]) => {
+      console.log('hello')
        this.setState({
          article,
          comments
        })
+    }).catch(() => {
+      api.getArticleByID(this.props.article_id).then(article => {
+        this.setState({
+          article
+        })
+      })
     })
   }
 

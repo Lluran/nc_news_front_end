@@ -12,7 +12,6 @@ class Comment extends Component {
     const { comment, ammendComment } = this.props;
     const { votes, body, created_at, created_by, _id } = comment;
     const { username } = created_by;
-    console.log(username, '<<<<username', user, '<<<<user')
     const dateCreated = new Date(Date.parse(created_at)).toDateString();
     return (
       <section>
@@ -30,7 +29,7 @@ class Comment extends Component {
     );
   }
   componentDidMount() {
-    const user = localStorage.getItem('user');
+    const user = sessionStorage.getItem('user');
     if (user) {
       this.setState({
         user
