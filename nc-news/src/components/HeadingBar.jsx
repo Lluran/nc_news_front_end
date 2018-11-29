@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LoginButton from './LoginButton';
+import './HeadingBar.css'
 
 const HeadingBar = props => {
   return (
     <header className="HeadingBar">
-      <img
-        src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_original.png"
-        alt="Northcoders Logo"
-      />
-      <img
-        src="http://southernsynodurc.org.uk/wp-content/uploads/2015/12/News-Update-Logo.png"
-        alt="News Update logo"
-      />
-      {props.user.length === 0 && <p>Login to comment or post an article!</p>}
-      <LoginButton user={props.user} clearUser={props.clearUser} />
+      <h1 className="title">Northcoders News</h1>
+      <div className="loginBar">{props.user.length === 0 && <p className="loginText">Login to comment or post an article!</p>}
+      <LoginButton  user={props.user} clearUser={props.clearUser} /></div>
     </header>
   );
 };

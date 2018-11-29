@@ -23,7 +23,7 @@ class AddArticle extends Component {
               value={this.state.title}
               onChange={this.handleInput}
             />
-            <label htmlFor="articleBodyInput" />
+            <label htmlFor="articleBodyInput">Write your article here: </label>
             <textarea
               name="body"
               id="articleBodyInput"

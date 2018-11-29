@@ -11,12 +11,12 @@ class LoginButton extends Component {
     return (
       <form>
         {user.length > 0 && (
-          <button type="" name="logout" onClick={this.handleLogClick}>
+          <button className="loginButton" type="" name="logout" onClick={this.handleLogClick}>
             Logout: {user}
           </button>
         )}
         {user.length === 0 && (
-          <button type="" name="login" id="login" onClick={this.handleLogClick}>
+          <button className="loginButton" type="" name="login" id="login" onClick={this.handleLogClick}>
             Login
           </button>
         )}
