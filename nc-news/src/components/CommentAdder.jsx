@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
+import './CommentAdder.css'
 
 class CommentAdder extends Component {
   state = {
@@ -12,17 +13,17 @@ class CommentAdder extends Component {
     const { article_id } = this.props;
     const apiURL = `/articles/${article_id}/comments`;
     return (
-      <form>
-        <label htmlFor="commentTextArea">Add a comment: </label>
+      <form className="commentAdderContainer">
+        <label className="textAreaLabel" htmlFor="commentTextArea">Add a comment: </label>
         <textarea
           id="commentTextArea"
-          rows="3"
+          rows="10"
           cols="110"
           value={this.state.body}
           name="body"
           onChange={this.handleCommentInput}
         />
-        <button
+        <button className="commentSubmitButton"
           type="submit"
           onClick={event => {
             this.submitComment(event, body, user_id, article_id, apiURL);

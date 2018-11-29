@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VoteAdder from './VoteAdder';
 import * as api from '../api';
+import './Comments.css'
 
 class Comment extends Component {
   state = {
@@ -14,17 +15,17 @@ class Comment extends Component {
     const { username } = created_by;
     const dateCreated = new Date(Date.parse(created_at)).toDateString();
     return (
-      <section>
-        <p>{body}</p>
-        <p>Written by: {username}</p>
-        <p>{dateCreated}</p>
-        <p>Votes: {votes}</p>
-        {user === username && (
-          <button type="button" id={_id} onClick={this.handleDelete}>
+      <section className="commentBox">
+        <p className="commentBody">{body}</p>
+        <p className="commentAuthor">Written by: <strong className="usernameOnArticleMini">{username}</strong></p>
+        <p >{dateCreated}</p>
+        <p className="commentVotes" >Votes: <strong>{votes}</strong></p>
+        <div className="commentButtons">{user === username && (
+          <button className="deleteCommentButton" type="button" id={_id} onClick={this.handleDelete}>
             Delete Comment
           </button>
         )}
-        <VoteAdder ammendComment={ammendComment} commentId={_id} />
+        <VoteAdder ammendComment={ammendComment} commentId={_id} /></div>
       </section>
     );
   }

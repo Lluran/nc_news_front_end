@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import './Comments.css'
 
 const CommentsContainer = props => {
   const { comments } = props;
@@ -14,7 +15,7 @@ const CommentsContainer = props => {
     }
   });
   return (
-    <section>
+    <section className="commentContainer">
       {orderedComments.map(commentObj => {
         return (
           <Comment
@@ -24,7 +25,7 @@ const CommentsContainer = props => {
           />
         );
       })}
-      {comments.length === 0 && <p>Be the first to comment on this article!</p>}
+      {comments.length === 0 && <p className="commentPlaceholder">Be the first to comment on this article!</p>}
     </section>
   );
 };

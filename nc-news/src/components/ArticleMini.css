@@ -71,6 +71,15 @@
   transform: scale(1.2);
 }
 
+.articleBody {
+  background-color: white;
+  border-color: black;
+  border-style: double;
+  width: 90%;
+  margin: auto;
+  padding: 1vw;
+}
+
 @media (max-width: 1000px) {
 .articleTitle {
   font-size: 3vw;

@@ -5,6 +5,7 @@ import CommentAdder from './CommentAdder';
 import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
 import { Link } from '@reach/router';
+import './CommentAdder.css'
 
 class ArticleContainer extends Component {
   state = {
@@ -15,7 +16,7 @@ class ArticleContainer extends Component {
     const { article, comments } = this.state;
     const { article_id, user } = this.props;
     return (
-      <section>
+      <section className="articleContainer">
         {article._id && (
           <ArticleMini
             article={article}
@@ -30,8 +31,8 @@ class ArticleContainer extends Component {
           />
         )}
         {user.length === 0 && (
-          <p>
-            <Link to="/login">Login</Link> to post a comment!
+          <p className="loginReminder">
+            <Link className="loginReminderLink" to="/login">Login</Link> to post a comment!
           </p>
         )}
         {article._id && (
@@ -73,7 +74,7 @@ class ArticleContainer extends Component {
     });
     let updatedComments = [];
     const num = direction === 'up' ? 1 : -1;
-    if (commentToUpdate[0].votes > 0 && num === -1) {
+    if (commentToUpdate[0].votes > 0 && direction === 'down') {
       commentToUpdate[0].votes += num;
       updatedComments = [commentToUpdate[0], ...otherComments];
     } else if (num === 1) {

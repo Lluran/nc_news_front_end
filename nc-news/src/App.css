@@ -30,7 +30,7 @@ a:hover {
   flex-wrap: nowrap;
   justify-content: space-evenly;
   align-items: center;
-  max-width: 75%;
+  width: 75%;
   margin-top: 20px;
   background-color: rgb(184, 6, 6);
   border-radius: 10px;

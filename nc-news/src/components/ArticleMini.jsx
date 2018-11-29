@@ -31,7 +31,7 @@ const ArticleMini = props => {
         {title}
       </Link>
       <p className="dateCreated">Written on: <strong>{dateCreated}</strong></p>
-      {props.article_id && <ArticleBody body={body} />}
+      {props.article_id && <ArticleBody  body={body} />}
       {props.article_id && (
         <VoteAdder ammendArticle={props.ammendArticle} articleId={_id} />
       )}

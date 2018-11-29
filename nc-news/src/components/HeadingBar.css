@@ -40,6 +40,7 @@
   background-color: rgb(184, 6, 6);
   color: white;
   font-size: 2vw;
+  border-radius: 10px;
   padding: 6px 15px;
   margin: 10px auto;
   text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
