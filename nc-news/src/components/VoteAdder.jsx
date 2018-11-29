@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
+import './VoteAdder.css'
 
 class VoteAdder extends Component {
   state = {
@@ -12,7 +13,7 @@ class VoteAdder extends Component {
       : this.props.articleId;
     const apiUrl = this.props.commentId ? `/comments/${id}` : `/articles/${id}`;
     return (
-      <form>
+      <form className="votingButtons">
         <button
           type="button"
           value="up"
@@ -21,7 +22,7 @@ class VoteAdder extends Component {
             this.handleVote(event, apiUrl);
           }}
           disabled={this.state.vote === 'up'}
-        >
+        className="voteUpButton">
           Up Vote
         </button>
         <button
@@ -32,7 +33,7 @@ class VoteAdder extends Component {
             this.handleVote(event, apiUrl);
           }}
           disabled={this.state.vote === 'down'}
-        >
+          className="voteDownButton">
           Down Vote
         </button>
       </form>
