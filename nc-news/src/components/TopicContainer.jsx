@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ArticlesContainer from './ArticlesContainer';
 import * as api from '../api';
 import { Link } from '@reach/router';
+import './TopicContainer.css'
 
 class TopicContainer extends Component {
   state = {
@@ -13,10 +14,10 @@ class TopicContainer extends Component {
     const { slug } = this.props;
     return (
       <main>
-        <section>
-          <h2>{slug}</h2>
-          <Link to={`/${slug}/articles/post`}>
-            <input type="button" value={`Write an article about ${slug}!`} />
+        <section className="topicHeadingBox">
+          <h2 className="topicHeading">{slug}</h2>
+          <Link to={`/${slug}/articles/post`}  >
+            <button className="writeAnArticleButton" type="">{`Write an article about ${slug}!`}</button>
           </Link>
         </section>
         <ArticlesContainer articles={relatedArticles} />
