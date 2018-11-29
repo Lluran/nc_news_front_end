@@ -1,0 +1,51 @@
+.loginForm {
+ text-align: left;
+ background-color: black;
+ margin: 1vw;
+ border-radius: 10px;
+ padding: 1.5vw;
+}
+
+.loginHeading {
+  width: 80%;
+  margin: 1vw;
+  padding-top: 10px;
+  color: white;
+  text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.failedLogin {
+  width: 80%;
+  margin: 1vw;
+  padding-top: 10px;
+  color: white;
+  text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.loginField {
+ margin: 2vw;
+ width: 70%;
+}
+
+.usernameOnLogin {
+  color: white;
+  text-shadow:
+  1px 1px 0 rgb(184, 6, 6),
+ -1px -1px 0 #000,  
+ 1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
+  font-size: 2vw;
+}
+
+#username {
+  font-size: 3vw;
+}
+
+@media (max-width: 1000px) {
+  .usernameOnLogin {
+   font-size: 3vw;
+  }
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ArticlesContainer from './ArticlesContainer';
 import User from './User';
 import * as api from '../api';
+import './Comments.css'
 
 class UserInfo extends Component {
   state = {
@@ -18,7 +19,7 @@ class UserInfo extends Component {
       return <p>Loading...</p>;
     }
     return (
-      <section>
+      <section className="userContainer">
         <User user={user} />
         <ArticlesContainer articles={userArticles} />
       </section>

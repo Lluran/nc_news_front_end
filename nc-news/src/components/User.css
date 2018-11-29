@@ -1,0 +1,41 @@
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  margin: 1vw auto;
+  background-color: rgba(00, 00, 00, 0.8);
+  border-radius: 10px;
+  border-color: black;
+  border-style: double;
+}
+
+.userImg {
+  width: 45%;
+  margin: 1vw;
+  border-radius: 50%;
+  border-color: black;
+}
+
+.userInfoUsername {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  border-color: rgb(184, 6, 6);
+  border-style: double;
+  padding: 1vw;
+  margin: 1vw;
+  font-size: 2vw;
+}
+
+.userInfoName {
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  border-color: rgb(184, 6, 6);
+  border-style: double;
+  padding: 1vw;
+  margin: 1vw;
+  font-size: 2vw;
+}

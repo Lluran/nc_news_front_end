@@ -18,7 +18,7 @@ class Comment extends Component {
       <section className="commentBox">
         <p className="commentBody">{body}</p>
         <p className="commentAuthor">Written by: <strong className="usernameOnArticleMini">{username}</strong></p>
-        <p >{dateCreated}</p>
+        <p className="commentDate">{dateCreated}</p>
         <p className="commentVotes" >Votes: <strong>{votes}</strong></p>
         <div className="commentButtons">{user === username && (
           <button className="deleteCommentButton" type="button" id={_id} onClick={this.handleDelete}>

@@ -32,12 +32,17 @@
   border-radius: 10px;
   border-color: rgb(184, 6, 6);
   border-style: double;
+  font-size: 1.7vw;
 
 }
 
 .commentBody {
- font-size: 1.5vw;
+ font-size: 1.7vw;
  padding: 1vw;
+}
+
+.commentDate {
+  font-size: 1vw;
 }
 
 .commentAuthor {
@@ -45,7 +50,7 @@
 }
 
 .commentVotes {
- font-size: 1.5vw;
+ font-size: 2vw;
 }
 
 .deleteCommentButton {

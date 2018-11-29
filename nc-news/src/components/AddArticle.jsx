@@ -6,15 +6,18 @@ import { navigate, Link } from '@reach/router';
 class AddArticle extends Component {
   state = {
     title: '',
-    body: ''
+    body: '',
+    err: ''
   };
   render() {
     const { user } = this.props;
+    const { err } = this.state;
     return (
       <main>
         <h2>Post a New Article</h2>
         {user.length > 0 && (
           <form action="" onSubmit={this.handleSubmit}>
+            {err.length > 0 && <p className="addArticleErrorMsg">{err}</p>}
             <label htmlFor="titleInput">Title: </label>
             <input
               type="text"
@@ -55,19 +58,28 @@ class AddArticle extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const newArticle = {
-      title: this.state.title,
-      body: this.state.body,
-      created_by: this.props.user
-    };
-    api
-      .postArticle(newArticle, this.props.slug)
-      .then(insertedArticle => {
-        navigate(`/topics/${this.props.slug}/articles`);
-      })
-      .then(postedArticle => {
-        this.props.updateArticles(postedArticle);
+    if (this.state.body.length === 0 || this.state.title.length === 0) {
+      this.setState({
+        err: 'Your article needs a title and body!'
       });
+    } else {
+      const newArticle = {
+        title: this.state.title,
+        body: this.state.body,
+        created_by: this.props.user
+      };
+      api
+        .postArticle(newArticle, this.props.slug)
+        .then(insertedArticle => {
+          this.setState({
+            err: ''
+          })
+          return navigate(`/topics/${this.props.slug}/articles`);
+        })
+        .then(postedArticle => {
+          this.props.updateArticles(postedArticle);
+        });
+    }
   };
 }
 

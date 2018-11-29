@@ -6,14 +6,16 @@ import './CommentAdder.css'
 class CommentAdder extends Component {
   state = {
     body: '',
-    user_id: ''
+    user_id: '',
+    err: ''
   };
   render() {
-    const { user_id, body } = this.state;
+    const { user_id, body, err } = this.state;
     const { article_id } = this.props;
     const apiURL = `/articles/${article_id}/comments`;
     return (
       <form className="commentAdderContainer">
+      {err.length > 0 && <p className="textAreaLabel">{err}</p>}
         <label className="textAreaLabel" htmlFor="commentTextArea">Add a comment: </label>
         <textarea
           id="commentTextArea"
@@ -51,6 +53,11 @@ class CommentAdder extends Component {
 
   submitComment = (event, body, user, article, url) => {
     event.preventDefault();
+    if (body.length === 0) {
+      this.setState({
+        err: 'No comment to submit!'
+      })
+    } else {
     const newComment = {
       body,
       belongs_to: article,
@@ -59,10 +66,12 @@ class CommentAdder extends Component {
     api.addComment(url, newComment).then(postedComment => {
       this.props.quickShowNewComment(postedComment);
       this.setState({
-        body: ''
+        body: '',
+        err: ''
       });
     });
   };
+}
 }
 
 CommentAdder.propTypes = {

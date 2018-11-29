@@ -10,7 +10,7 @@ import './CommentAdder.css'
 class ArticleContainer extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
   };
   render() {
     const { article, comments } = this.state;
@@ -61,7 +61,10 @@ class ArticleContainer extends Component {
           this.setState({
             article
           });
-        });
+        }).catch(err => {
+          const {msg} = err.response.data;
+          //Do something with message - pass though navigate as second argument after replace
+        })
       });
   }
 

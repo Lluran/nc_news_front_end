@@ -10,6 +10,7 @@ import UserInfo from './components/UserInfo';
 import * as api from './api';
 import NewLogin from './components/NewLogin';
 import AddArticle from './components/AddArticle';
+import NotFound from './components/NotFound';
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
             path="/:slug/articles/post"
           />
           <NewLogin login={this.login} path="/login" />
+          <NotFound default />
         </Router>
       </div>
     );
