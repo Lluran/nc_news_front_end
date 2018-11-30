@@ -6,8 +6,8 @@
  border-color: black;
  border-style: double;
  text-align: center;
- padding: 2vw;
- font-size: 2vw;
+ padding: 1vw;
+ font-size: 2.5vh;
  width: 80%;
 }
 
@@ -24,7 +24,6 @@
 }
 
 .commentAdderContainer {
- /* flex: 1 1 5.5vh; */
  background-color: lightgray;
  margin: auto;
  border-color: black;
@@ -39,11 +38,12 @@
 #commentTextArea {
   flex: 1 1 5.5vh;
   border-radius: 10px;
+  font-size: 2.5vh;
 }
 
 .textAreaLabel {
   flex: 1 1 5.5vh;
-  font-size: 1.6vw;
+  font-size: 2.5vh;
 }
 
 .commentSubmitButton {
@@ -56,7 +56,7 @@
   margin: auto;
   margin-top: 10px;
   color: white;
-  font-size: 2vw;
+  font-size: 2.5vh;
   text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 0 #000;
   transition: 0.2s;
@@ -69,6 +69,9 @@
 }
 
 .articleContainer {
- display: flex;
- flex-direction: column;
+ display: grid;
+ grid-template-columns: 95%;
+ grid-gap: 0.5vw;
+ overflow: scroll;
+ height: 98%;
 }

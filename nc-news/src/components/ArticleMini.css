@@ -6,7 +6,7 @@
   text-align: center;
   margin: 1.5vw;
   background-color: lightgray;
-  font-size: 1.6vw;
+  font-size: 1.9vh;
 }
 
 .topicName {
@@ -48,7 +48,7 @@
 .articleTitle {
   display: block;
   text-decoration: underline;
-  font-size: 1.8vw;
+  font-size: 2.5vh;
   color: rgb(184, 6, 6);
   text-shadow:
   0.3px 0.3px 0 black,
@@ -77,14 +77,10 @@
   border-style: double;
   width: 90%;
   margin: auto;
-  padding: 1vw;
+  padding: 1.5vh;
+  font-size: 2.5vh;
 }
 
 @media (max-width: 1000px) {
-.articleTitle {
-  font-size: 3vw;
-}
-.articleTitle:hover {
-  transform: scale(1.1);
-}
+
 }

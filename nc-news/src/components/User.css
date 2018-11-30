@@ -9,10 +9,11 @@
   border-radius: 10px;
   border-color: black;
   border-style: double;
+  overflow: hidden;
 }
 
 .userImg {
-  width: 45%;
+  height: 100px;
   margin: 1vw;
   border-radius: 50%;
   border-color: black;
@@ -26,7 +27,7 @@
   border-style: double;
   padding: 1vw;
   margin: 1vw;
-  font-size: 2vw;
+  font-size: 3vh;
 }
 
 .userInfoName {
@@ -37,5 +38,16 @@
   border-style: double;
   padding: 1vw;
   margin: 1vw;
-  font-size: 2vw;
+  font-size: 3vh;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 95%;
+  overflow: scroll;
 }

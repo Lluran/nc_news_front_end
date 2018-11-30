@@ -20,7 +20,7 @@ class CommentAdder extends Component {
         <textarea
           id="commentTextArea"
           rows="10"
-          cols="110"
+          cols="30"
           value={this.state.body}
           name="body"
           onChange={this.handleCommentInput}

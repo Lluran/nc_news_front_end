@@ -1,0 +1,44 @@
+.addArticleBox {
+  text-align: left;
+  background-color: black;
+  margin: 1vw;
+  border-radius: 10px;
+  padding: 1.5vw;
+  height: 90%;
+  overflow: scroll;
+}
+
+.addArticleHeading {
+  width: 80%;
+  margin: 1vw;
+  font-size: 4vh;
+  padding-top: 10px;
+  color: white;
+  text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.addArticleForm {
+display: flex;
+flex-direction: column;
+}
+
+.addArticleLabel {
+  font-size: 3vh;
+  color: white;
+  margin: 0.5vw;
+}
+
+.addArticleContent {
+  font-size: 3vh;
+  margin: 0.5vw;
+}
+
+.addArticleErrorMsg {
+  width: 80%;
+  margin: 1vw;
+  padding-top: 10px;
+  color: white;
+  text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+}

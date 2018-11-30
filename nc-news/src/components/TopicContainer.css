@@ -1,9 +1,17 @@
 .topicHeadingBox {
 background-color: rgb(00, 00, 00, 0.6);
- flex: 1 1 5.5vh;
- margin: 1.5vw;
- padding: 3vw;
+ padding: 1vw;
  border-radius: 10px;
+ display: grid;
+ grid-template-columns: 50% 50%;
+ grid-template-rows: 90%;
+justify-content: center;
+align-content: space-between;
+justify-items: center;
+align-items: center;
+width: 93%;
+margin-bottom: 1vw;
+margin-top: 1vw;
 }
 
 .topicHeading {
@@ -12,20 +20,25 @@ background-color: rgb(00, 00, 00, 0.6);
     -1px 1px 0 #000, 1px 1px 0 #000;
   text-decoration: underline;
   margin: 5px 0px;
-  font-size: 4vw;
+  font-size: 5vh;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  justify-self: left;
 }
 
 .writeAnArticleButton {
 background-color: rgb(184, 6, 6);
 border-style: double;
 border-color: white;
-font-size: 2vw;
+font-size: 3.5vh;
 color: white;
 text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
   -1px 1px 0 #000, 1px 1px 0 #000;
   border-radius: 10px;
   margin-top: 5px;
 transition: 0.2s;
+grid-column-start: 2;
+grid-column-end: 2;
 }
 
 .writeAnArticleButton:hover {

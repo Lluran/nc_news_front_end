@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import { navigate, Link } from '@reach/router';
+import './AddArticle.css'
 
 class AddArticle extends Component {
   state = {
@@ -13,20 +14,20 @@ class AddArticle extends Component {
     const { user } = this.props;
     const { err } = this.state;
     return (
-      <main>
-        <h2>Post a New Article</h2>
+      <main className="addArticleBox">
+        <h2 className="addArticleHeading">Post a New Article</h2>
         {user.length > 0 && (
-          <form action="" onSubmit={this.handleSubmit}>
+          <form action="" onSubmit={this.handleSubmit} className="addArticleForm">
             {err.length > 0 && <p className="addArticleErrorMsg">{err}</p>}
-            <label htmlFor="titleInput">Title: </label>
-            <input
+            <label htmlFor="titleInput" className="addArticleLabel">Title: </label>
+            <input className="addArticleContent"
               type="text"
               name="title"
               id="titleInput"
               value={this.state.title}
               onChange={this.handleInput}
             />
-            <label htmlFor="articleBodyInput">Write your article here: </label>
+            <label htmlFor="articleBodyInput" className="addArticleLabel">Write your article here: </label>
             <textarea
               name="body"
               id="articleBodyInput"
@@ -34,15 +35,14 @@ class AddArticle extends Component {
               rows="10"
               value={this.state.body}
               onChange={this.handleInput}
-            >
-              Write your article here!
+            className="addArticleContent"> 
             </textarea>
-            <button type="submit">Post Article!</button>
+            <button className="commentSubmitButton" type="submit">Post Article!</button>
           </form>
         )}
         {user.length === 0 && (
-          <p>
-            You need to <Link to="/login">login</Link> to post an article!
+          <p className="loginReminder">
+            You need to <Link className="loginReminderLink" to="/login">login</Link> to post an article!
           </p>
         )}
       </main>

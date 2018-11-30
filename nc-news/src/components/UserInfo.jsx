@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import ArticlesContainer from './ArticlesContainer';
 import User from './User';
 import * as api from '../api';
-import './Comments.css'
+import './Comments.css';
+import './User.css'
 
 class UserInfo extends Component {
   state = {
@@ -21,7 +22,7 @@ class UserInfo extends Component {
     return (
       <section className="userContainer">
         <User user={user} />
-        <ArticlesContainer articles={userArticles} />
+        <ArticlesContainer slug="userArticles" articles={userArticles} />
       </section>
     );
   }

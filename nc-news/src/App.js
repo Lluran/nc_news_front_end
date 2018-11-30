@@ -3,7 +3,6 @@ import './App.css';
 import HeadingBar from './components/HeadingBar';
 import TopicSelector from './components/TopicSelector';
 import { Router, navigate } from '@reach/router';
-import ArticlesContainer from './components/ArticlesContainer';
 import TopicContainer from './components/TopicContainer';
 import ArticleContainer from './components/ArticleContainer';
 import UserInfo from './components/UserInfo';
@@ -25,7 +24,7 @@ class App extends Component {
         <HeadingBar user={user} clearUser={this.clearUser} />
         <TopicSelector />
         <Router className="mainBody">
-          <ArticlesContainer articles={articles} path="/" />
+          <TopicContainer slug={'all articles'} articles={articles} path="/" />
           <TopicContainer path="/topics/:slug/articles" />
           <ArticleContainer user={user} path="/articles/:article_id" />
           <UserInfo articles={articles} path="/users/:username" />
@@ -60,7 +59,6 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('updating app');
     api.getArticles().then(freshArticles => {
       if (freshArticles.length !== prevState.articles.length) {
         this.setState({
