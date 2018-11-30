@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { Link } from '@reach/router';
 import * as api from '../api';
-import './TopicBar.css'
+import './TopicBar.css';
 
 class TopicSelector extends Component {
   state = {

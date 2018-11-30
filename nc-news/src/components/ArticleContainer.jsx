@@ -5,12 +5,12 @@ import CommentAdder from './CommentAdder';
 import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
 import { Link } from '@reach/router';
-import './CommentAdder.css'
+import './CommentAdder.css';
 
 class ArticleContainer extends Component {
   state = {
     article: {},
-    comments: [],
+    comments: []
   };
   render() {
     const { article, comments } = this.state;
@@ -32,7 +32,10 @@ class ArticleContainer extends Component {
         )}
         {user.length === 0 && (
           <p className="loginReminder">
-            <Link className="loginReminderLink" to="/login">Login</Link> to post a comment!
+            <Link className="loginReminderLink" to="/login">
+              Login
+            </Link>{' '}
+            to post a comment!
           </p>
         )}
         {article._id && (
@@ -57,14 +60,17 @@ class ArticleContainer extends Component {
         });
       })
       .catch(() => {
-        api.getArticleByID(this.props.article_id).then(article => {
-          this.setState({
-            article
+        api
+          .getArticleByID(this.props.article_id)
+          .then(article => {
+            this.setState({
+              article
+            });
+          })
+          .catch(err => {
+            const { msg } = err.response.data;
+            //Do something with message - pass though navigate as second argument after replace
           });
-        }).catch(err => {
-          const {msg} = err.response.data;
-          //Do something with message - pass though navigate as second argument after replace
-        })
       });
   }
 

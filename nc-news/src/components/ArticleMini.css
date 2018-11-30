@@ -17,7 +17,7 @@
 .author {
   display: inline-block;
   margin: 15px 1.5vw;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .commentcount {
@@ -32,13 +32,8 @@
 
 .usernameOnArticleMini {
   color: white;
-  text-shadow:
-  1px 1px 0 rgb(184, 6, 6),
- -1px -1px 0 #000,  
- 1px -1px 0 #000,
- -1px 1px 0 #000,
-  1px 1px 0 #000;
-
+  text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .author:hover {
@@ -50,12 +45,8 @@
   text-decoration: underline;
   font-size: 2.5vh;
   color: rgb(184, 6, 6);
-  text-shadow:
-  0.3px 0.3px 0 black,
- -0.3px -0.3px 0 #000,  
- 0.3px -0.3px 0 #000,
- -0.3px 0.3px 0 #000,
-  0.3px 0.3px 0 #000;
+  text-shadow: 0.3px 0.3px 0 black, -0.3px -0.3px 0 #000, 0.3px -0.3px 0 #000,
+    -0.3px 0.3px 0 #000, 0.3px 0.3px 0 #000;
   font-weight: normal;
   background-color: white;
   width: 50%;
@@ -82,5 +73,4 @@
 }
 
 @media (max-width: 1000px) {
-
 }

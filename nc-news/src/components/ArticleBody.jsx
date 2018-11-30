@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ArticleMini.css'
+import './ArticleMini.css';
 
 const ArticleBody = props => {
   return <p className="articleBody">{props.body}</p>;

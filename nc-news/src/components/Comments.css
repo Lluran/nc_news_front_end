@@ -34,24 +34,19 @@
   border-color: rgb(184, 6, 6);
   border-style: double;
   font-size: 2vh;
-
 }
 
 .commentBody {
- font-size:2vh;
- padding: 1vw;
+  font-size: 2vh;
+  padding: 1vw;
 }
 
 .commentDate {
   font-size: 1vw;
 }
 
-.commentAuthor {
-
-}
-
 .commentVotes {
- font-size: 2vh;
+  font-size: 2vh;
 }
 
 .deleteCommentButton {
@@ -72,7 +67,7 @@
 }
 
 .deleteCommentButton:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .commentButtons {

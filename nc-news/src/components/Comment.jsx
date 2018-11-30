@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import VoteAdder from './VoteAdder';
 import * as api from '../api';
-import './Comments.css'
+import './Comments.css';
 
 class Comment extends Component {
   state = {
@@ -17,15 +17,27 @@ class Comment extends Component {
     return (
       <section className="commentBox">
         <p className="commentBody">{body}</p>
-        <p className="commentAuthor">Written by: <strong className="usernameOnArticleMini">{username}</strong></p>
+        <p className="commentAuthor">
+          Written by:{' '}
+          <strong className="usernameOnArticleMini">{username}</strong>
+        </p>
         <p className="commentDate">{dateCreated}</p>
-        <p className="commentVotes" >Votes: <strong>{votes}</strong></p>
-        <div className="commentButtons">{user === username && (
-          <button className="deleteCommentButton" type="button" id={_id} onClick={this.handleDelete}>
-            Delete Comment
-          </button>
-        )}
-        <VoteAdder ammendComment={ammendComment} commentId={_id} /></div>
+        <p className="commentVotes">
+          Votes: <strong>{votes}</strong>
+        </p>
+        <div className="commentButtons">
+          {user === username && (
+            <button
+              className="deleteCommentButton"
+              type="button"
+              id={_id}
+              onClick={this.handleDelete}
+            >
+              Delete Comment
+            </button>
+          )}
+          <VoteAdder ammendComment={ammendComment} commentId={_id} />
+        </div>
       </section>
     );
   }

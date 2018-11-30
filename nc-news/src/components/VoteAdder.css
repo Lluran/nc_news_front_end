@@ -1,25 +1,25 @@
 .votingButtons {
- width: 50%;
- margin: auto;
+  width: 50%;
+  margin: auto;
 }
 
 .voteUpButton {
- width: 40%;
- padding: 5px 0px;
- border-style: double;
- border-color: white;
- border-radius: 10px;
- background-color: green;
- margin: 1vw;
- color: white;
- font-size: 2.5vh;
- text-shadow: 1px 1px 0 black, -1px -1px 0 #000, 1px -1px 0 #000,
-   -1px 1px 0 #000, 1px 1px 0 #000;
- transition: 0.2s;
+  width: 40%;
+  padding: 5px 0px;
+  border-style: double;
+  border-color: white;
+  border-radius: 10px;
+  background-color: green;
+  margin: 1vw;
+  color: white;
+  font-size: 2.5vh;
+  text-shadow: 1px 1px 0 black, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000, 1px 1px 0 #000;
+  transition: 0.2s;
 }
 
 .voteUpButton:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 
 .voteDownButton {
@@ -38,5 +38,5 @@
 }
 
 .voteDownButton:hover {
-  transform: scale(1.1)
+  transform: scale(1.1);
 }

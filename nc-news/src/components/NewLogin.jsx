@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import { navigate } from '@reach/router';
-import './Login.css'
+import './Login.css';
 
 class NewLogin extends Component {
   state = {
@@ -14,11 +14,15 @@ class NewLogin extends Component {
       <form className="loginForm" onSubmit={this.handleSubmit}>
         <h2 className="loginHeading">Login: </h2>
         {this.state.attempts > 0 && (
-          <h3 className="failedLogin">Login attempt failed. Incorrect username.</h3>
+          <h3 className="failedLogin">
+            Login attempt failed. Incorrect username.
+          </h3>
         )}
-        <label className="usernameOnLogin" htmlFor="username">Username: </label>
+        <label className="usernameOnLogin" htmlFor="username">
+          Username:{' '}
+        </label>
         <input
-         className="loginField"
+          className="loginField"
           id="username"
           type="text"
           onChange={this.handleChange}

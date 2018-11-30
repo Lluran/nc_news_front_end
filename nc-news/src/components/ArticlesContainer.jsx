@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ArticleMini from './ArticleMini';
-import './ArticlesContainer.css'
+import './ArticlesContainer.css';
 
 class ArticlesContainer extends Component {
   render() {

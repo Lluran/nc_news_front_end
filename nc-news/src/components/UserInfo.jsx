@@ -4,7 +4,7 @@ import ArticlesContainer from './ArticlesContainer';
 import User from './User';
 import * as api from '../api';
 import './Comments.css';
-import './User.css'
+import './User.css';
 
 class UserInfo extends Component {
   state = {

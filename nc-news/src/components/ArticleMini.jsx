@@ -21,17 +21,28 @@ const ArticleMini = props => {
 
   return (
     <article className="articleMini">
-      <p className="topicName">Topic: <strong>{belongs_to}</strong></p>
-      <p className="author">
-        Author: <Link to={`/users/${username}`}><strong className="usernameOnArticleMini">{username}</strong></Link>
+      <p className="topicName">
+        Topic: <strong>{belongs_to}</strong>
       </p>
-      <p className="commentcount">Comments: <strong>{comment_count}</strong></p>
-      <p className="votecount">Votes: <strong>{votes}</strong></p>
+      <p className="author">
+        Author:{' '}
+        <Link to={`/users/${username}`}>
+          <strong className="usernameOnArticleMini">{username}</strong>
+        </Link>
+      </p>
+      <p className="commentcount">
+        Comments: <strong>{comment_count}</strong>
+      </p>
+      <p className="votecount">
+        Votes: <strong>{votes}</strong>
+      </p>
       <Link className="articleTitle" to={`/articles/${_id}`}>
         {title}
       </Link>
-      <p className="dateCreated">Written on: <strong>{dateCreated}</strong></p>
-      {props.article_id && <ArticleBody  body={body} />}
+      <p className="dateCreated">
+        Written on: <strong>{dateCreated}</strong>
+      </p>
+      {props.article_id && <ArticleBody body={body} />}
       {props.article_id && (
         <VoteAdder ammendArticle={props.ammendArticle} articleId={_id} />
       )}

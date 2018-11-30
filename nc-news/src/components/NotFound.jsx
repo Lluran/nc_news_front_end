@@ -9,8 +9,6 @@ const NotFound = props => {
   );
 };
 
-NotFound.propTypes = {
-  
-};
+NotFound.propTypes = {};
 
 export default NotFound;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
-import './CommentAdder.css'
+import './CommentAdder.css';
 
 class CommentAdder extends Component {
   state = {
@@ -15,8 +15,10 @@ class CommentAdder extends Component {
     const apiURL = `/articles/${article_id}/comments`;
     return (
       <form className="commentAdderContainer">
-      {err.length > 0 && <p className="textAreaLabel">{err}</p>}
-        <label className="textAreaLabel" htmlFor="commentTextArea">Add a comment: </label>
+        {err.length > 0 && <p className="textAreaLabel">{err}</p>}
+        <label className="textAreaLabel" htmlFor="commentTextArea">
+          Add a comment:{' '}
+        </label>
         <textarea
           id="commentTextArea"
           rows="10"
@@ -25,7 +27,8 @@ class CommentAdder extends Component {
           name="body"
           onChange={this.handleCommentInput}
         />
-        <button className="commentSubmitButton"
+        <button
+          className="commentSubmitButton"
           type="submit"
           onClick={event => {
             this.submitComment(event, body, user_id, article_id, apiURL);
@@ -56,22 +59,22 @@ class CommentAdder extends Component {
     if (body.length === 0) {
       this.setState({
         err: 'No comment to submit!'
-      })
-    } else {
-    const newComment = {
-      body,
-      belongs_to: article,
-      created_by: user
-    };
-    api.addComment(url, newComment).then(postedComment => {
-      this.props.quickShowNewComment(postedComment);
-      this.setState({
-        body: '',
-        err: ''
       });
-    });
+    } else {
+      const newComment = {
+        body,
+        belongs_to: article,
+        created_by: user
+      };
+      api.addComment(url, newComment).then(postedComment => {
+        this.props.quickShowNewComment(postedComment);
+        this.setState({
+          body: '',
+          err: ''
+        });
+      });
+    }
   };
-}
 }
 
 CommentAdder.propTypes = {

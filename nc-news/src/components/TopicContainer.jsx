@@ -17,8 +17,13 @@ class TopicContainer extends Component {
       <main className="headingAndArticles">
         <section className="topicHeadingBox">
           <h2 className="topicHeading">{slug}</h2>
-          <Link to={`/${slug}/articles/post`}  >
-            {slug !== 'all articles' && (<button className="writeAnArticleButton" type="">{`Write an article about ${slug}!`}</button>)}
+          <Link to={`/${slug}/articles/post`}>
+            {slug !== 'all articles' && (
+              <button
+                className="writeAnArticleButton"
+                type=""
+              >{`Write an article about ${slug}!`}</button>
+            )}
           </Link>
         </section>
         <ArticlesContainer slug={slug} articles={relatedArticles} />
@@ -31,8 +36,8 @@ class TopicContainer extends Component {
       api.getArticles().then(articles => {
         this.setState({
           relatedArticles: articles
-        })
-      })
+        });
+      });
     } else {
       api.getArticlesByTopic(this.props.slug).then(articles => {
         this.setState({
@@ -40,26 +45,25 @@ class TopicContainer extends Component {
         });
       });
     }
-
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.slug !== this.props.slug) {
-    if (this.props.slug === 'all articles') {
-      api.getArticles().then(articles => {
-        this.setState({
-          relatedArticles: articles
-        })
-      })
-      
-    } else {
-      api.getArticlesByTopic(this.props.slug).then(articles => {
-        this.setState({
-          relatedArticles: articles
+      if (this.props.slug === 'all articles') {
+        api.getArticles().then(articles => {
+          this.setState({
+            relatedArticles: articles
+          });
         });
-      });
+      } else {
+        api.getArticlesByTopic(this.props.slug).then(articles => {
+          this.setState({
+            relatedArticles: articles
+          });
+        });
+      }
     }
-  }}
+  }
 }
 
 TopicContainer.propTypes = {
