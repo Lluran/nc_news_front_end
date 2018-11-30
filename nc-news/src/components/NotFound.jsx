@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ErrorHandler from './ErrorHandler';
 
 const NotFound = props => {
   return (
-    <div>
-      <h1>Nothing to see here...</h1>
-    </div>
+    <ErrorHandler defaultCode={props.defaultCode}/>
   );
 };
 

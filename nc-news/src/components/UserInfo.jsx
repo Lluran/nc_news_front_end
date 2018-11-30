@@ -5,6 +5,7 @@ import User from './User';
 import * as api from '../api';
 import './Comments.css';
 import './User.css';
+import {navigate} from '@reach/router'
 
 class UserInfo extends Component {
   state = {
@@ -33,7 +34,17 @@ class UserInfo extends Component {
         user,
         isLoading: false
       });
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   }
 }
 

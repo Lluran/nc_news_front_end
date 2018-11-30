@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import './CommentAdder.css';
+import {navigate} from '@reach/router'
 
 class CommentAdder extends Component {
   state = {
@@ -72,7 +73,17 @@ class CommentAdder extends Component {
           body: '',
           err: ''
         });
-      });
+      }).catch(err => {
+        const msg = err.response.data.msg;
+        const code = err.response.status;
+        navigate('/error', {
+          replace: false,
+          state: {
+            code,
+            msg
+          }
+        })
+      })
     }
   };
 }

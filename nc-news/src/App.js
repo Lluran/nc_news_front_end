@@ -10,6 +10,7 @@ import * as api from './api';
 import NewLogin from './components/NewLogin';
 import AddArticle from './components/AddArticle';
 import NotFound from './components/NotFound';
+import ErrorHandler from './components/ErrorHandler';
 
 class App extends Component {
   state = {
@@ -34,7 +35,8 @@ class App extends Component {
             path="/:slug/articles/post"
           />
           <NewLogin login={this.login} path="/login" />
-          <NotFound default />
+          <ErrorHandler path="/error" />
+          <NotFound defaultCode={'404'} default />
         </Router>
       </div>
     );
@@ -55,7 +57,17 @@ class App extends Component {
           articles
         });
       }
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -65,7 +77,17 @@ class App extends Component {
           articles: freshArticles
         });
       }
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   }
 
   login = (_id, user) => {

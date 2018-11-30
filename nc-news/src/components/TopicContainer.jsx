@@ -5,6 +5,7 @@ import * as api from '../api';
 import { Link } from '@reach/router';
 import './TopicContainer.css';
 import './ArticlesContainer.css';
+import { navigate } from '@reach/router/lib/history';
 
 class TopicContainer extends Component {
   state = {
@@ -39,11 +40,24 @@ class TopicContainer extends Component {
         });
       });
     } else {
-      api.getArticlesByTopic(this.props.slug).then(articles => {
-        this.setState({
-          relatedArticles: articles
+      api
+        .getArticlesByTopic(this.props.slug)
+        .then(articles => {
+          this.setState({
+            relatedArticles: articles
+          });
+        })
+        .catch(err => {
+          const msg = err.response.data.msg;
+          const code = err.response.status;
+          navigate('/error', {
+            replace: false,
+            state: {
+              code,
+              msg
+            }
+          });
         });
-      });
     }
   }
 
@@ -56,11 +70,24 @@ class TopicContainer extends Component {
           });
         });
       } else {
-        api.getArticlesByTopic(this.props.slug).then(articles => {
-          this.setState({
-            relatedArticles: articles
+        api
+          .getArticlesByTopic(this.props.slug)
+          .then(articles => {
+            this.setState({
+              relatedArticles: articles
+            });
+          })
+          .catch(err => {
+            const msg = err.response.data.msg;
+            const code = err.response.status;
+            navigate('/error', {
+              replace: false,
+              state: {
+                code,
+                msg
+              }
+            });
           });
-        });
       }
     }
   }

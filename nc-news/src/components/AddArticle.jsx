@@ -93,7 +93,17 @@ class AddArticle extends Component {
         })
         .then(postedArticle => {
           this.props.updateArticles(postedArticle);
-        });
+        }).catch(err => {
+          const msg = err.response.data.msg;
+          const code = err.response.status;
+          navigate('/error', {
+            replace: false,
+            state: {
+              code,
+              msg
+            }
+          })
+        })
     }
   };
 }

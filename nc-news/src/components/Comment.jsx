@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import VoteAdder from './VoteAdder';
 import * as api from '../api';
 import './Comments.css';
+import {navigate} from '@reach/router'
 
 class Comment extends Component {
   state = {
@@ -55,7 +56,17 @@ class Comment extends Component {
     const apiUrl = `/comments/${id}`;
     api.deleteData(apiUrl).then(data => {
       this.props.ammendComment(id, 'delete');
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   };
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import * as api from '../api';
 import './TopicBar.css';
 
@@ -38,7 +38,17 @@ class TopicSelector extends Component {
       this.setState({
         topics
       });
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   }
 }
 

@@ -4,7 +4,7 @@ import ArticleMini from './ArticleMini';
 import CommentAdder from './CommentAdder';
 import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
-import { Link } from '@reach/router';
+import { Link, navigate } from '@reach/router';
 import './CommentAdder.css';
 
 class ArticleContainer extends Component {
@@ -68,8 +68,15 @@ class ArticleContainer extends Component {
             });
           })
           .catch(err => {
-            const { msg } = err.response.data;
-            //Do something with message - pass though navigate as second argument after replace
+            const msg = err.response.data.msg;
+            const code = err.response.status;
+            navigate('/error', {
+              replace: false,
+              state: {
+                code,
+                msg
+              }
+            })
           });
       });
   }

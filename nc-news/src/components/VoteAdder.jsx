@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as api from '../api';
 import './VoteAdder.css';
+import {navigate} from '@reach/router';
 
 class VoteAdder extends Component {
   state = {
@@ -54,7 +55,17 @@ class VoteAdder extends Component {
       this.setState({
         vote: value
       });
-    });
+    }).catch(err => {
+      const msg = err.response.data.msg;
+      const code = err.response.status;
+      navigate('/error', {
+        replace: false,
+        state: {
+          code,
+          msg
+        }
+      })
+    })
   };
 }
 
