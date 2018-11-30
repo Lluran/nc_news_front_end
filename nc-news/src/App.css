@@ -48,6 +48,16 @@ a:hover {
   height: 78vh;
 }
 
+.loading {
+height: 50%;
+width: 50%;
+margin: 40px auto;
+}
+
+.loadingImg {
+ width: 100%;
+ margin: auto;
+}
 @media (max-width: 1000px) {
   .App {
     height: 100vh;
@@ -90,5 +100,3 @@ a:hover {
     margin: auto;
   }
 }
-
-/* Reach Router embeds components in a div. This wont inherit the grid references. To overcome this, we can pass a className to the router and then style it appropriately. */

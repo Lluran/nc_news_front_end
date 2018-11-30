@@ -19,7 +19,7 @@ const ErrorHandler = props => {
 };
 
 ErrorHandler.propTypes = {
-  
+  defaultCode: PropTypes.string,
 };
 
 export default ErrorHandler;

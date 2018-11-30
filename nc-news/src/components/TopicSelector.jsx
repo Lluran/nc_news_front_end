@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import { Link, navigate } from '@reach/router';
 import * as api from '../api';
 import './TopicBar.css';
@@ -51,9 +50,5 @@ class TopicSelector extends Component {
     })
   }
 }
-
-// TopicSelector.propTypes = {
-
-// };
 
 export default TopicSelector;

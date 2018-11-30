@@ -12,7 +12,7 @@ class AddArticle extends Component {
   };
   render() {
     const { user } = this.props;
-    const { err } = this.state;
+    const { err, title, body } = this.state;
     return (
       <main className="addArticleBox">
         <h2 className="addArticleHeading">Post a New Article</h2>
@@ -31,7 +31,7 @@ class AddArticle extends Component {
               type="text"
               name="title"
               id="titleInput"
-              value={this.state.title}
+              value={title}
               onChange={this.handleInput}
             />
             <label htmlFor="articleBodyInput" className="addArticleLabel">
@@ -42,7 +42,7 @@ class AddArticle extends Component {
               id="articleBodyInput"
               cols="30"
               rows="10"
-              value={this.state.body}
+              value={body}
               onChange={this.handleInput}
               className="addArticleContent"
             />
