@@ -6,15 +6,20 @@ import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
 import { Link, navigate } from '@reach/router';
 import './CommentAdder.css';
+import loading from '../assets/loading.svg'
 
 class ArticleContainer extends Component {
   state = {
     article: {},
-    comments: []
+    comments: [],
+    isLoading: true
   };
   render() {
-    const { article, comments } = this.state;
+    const { article, comments, isLoading } = this.state;
     const { article_id, user } = this.props;
+    if (isLoading) {
+      return (<div className="loading"><img className="loadingImg" src={loading} alt='loading logo' /></div>)
+    }
     return (
       <section className="articleContainer">
         {article._id && (
@@ -56,7 +61,8 @@ class ArticleContainer extends Component {
       .then(([article, comments]) => {
         this.setState({
           article,
-          comments
+          comments,
+          isLoading: false
         });
       })
       .catch(() => {
@@ -64,7 +70,8 @@ class ArticleContainer extends Component {
           .getArticleByID(this.props.article_id)
           .then(article => {
             this.setState({
-              article
+              article,
+              isLoading: false
             });
           })
           .catch(err => {
@@ -101,7 +108,8 @@ class ArticleContainer extends Component {
     }
 
     this.setState({
-      comments: updatedComments
+      comments: updatedComments,
+      isLoading: false
     });
   };
 
@@ -114,14 +122,16 @@ class ArticleContainer extends Component {
       updatedArticle.votes += num;
     }
     this.setState({
-      article: updatedArticle
+      article: updatedArticle,
+      isLoading: false
     });
   };
 
   quickShowNewComment = newComment => {
     const updatedComments = [newComment, ...this.state.comments];
     this.setState({
-      comments: updatedComments
+      comments: updatedComments,
+      isLoading: false
     });
   };
 }

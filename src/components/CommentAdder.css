@@ -66,8 +66,14 @@
 
 .articleContainer {
   display: grid;
-  grid-template-columns: 95%;
+  grid-template-columns: auto;
   grid-gap: 0.5vw;
   overflow: scroll;
   height: 98%;
+}
+
+@media (max-width: 1273px) { 
+  .commentSubmitButton {
+    width: 40%;
+  }
 }

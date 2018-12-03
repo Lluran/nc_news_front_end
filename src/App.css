@@ -6,7 +6,6 @@
   grid-template-columns: 15% auto auto;
   grid-template-rows: auto auto auto auto;
   height: 100vh;
-  min-width: 580px;
 }
 
 a {
@@ -48,15 +47,25 @@ a:hover {
   height: 78vh;
 }
 
-@media (max-width: 1000px) {
+.loading {
+height: 50%;
+width: 50%;
+margin: 40px auto;
+}
+
+.loadingImg {
+ width: 100%;
+ margin: auto;
+}
+@media (max-width: 1273px) {
   .App {
-    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     display: grid;
-    grid-gap: 2vw;
+    grid-gap: 1vw;
     grid-template-columns: auto;
-    grid-template-rows: 15% 15% auto;
-    height: 100vh;
+    grid-template-rows: auto auto auto;
+    justify-content: flex-start;
+    align-content: flex-start;
   }
   .HeadingBar {
     grid-column-start: 1;
@@ -64,7 +73,7 @@ a:hover {
     grid-row-start: 1;
     grid-row-end: 1;
     height: 15vh;
-    width: 95%;
+    width: 92%;
     margin: auto;
   }
   .TopicSelector {
@@ -73,7 +82,7 @@ a:hover {
     grid-row-start: 2;
     grid-row-end: 2;
     height: 15vh;
-    width: 95%;
+    width: 93%;
     margin: auto;
   }
   .mainBody {
@@ -85,10 +94,9 @@ a:hover {
     border-radius: 10px;
     border-color: black;
     border-style: double;
-    height: 55vh;
-    width: 95%;
+    height: 100vh;
     margin: auto;
+    width: 94%;
+    justify-self: flex-start;
   }
 }
-
-/* Reach Router embeds components in a div. This wont inherit the grid references. To overcome this, we can pass a className to the router and then style it appropriately. */

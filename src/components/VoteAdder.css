@@ -40,3 +40,16 @@
 .voteDownButton:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 1273px) {
+  .votingButtons {
+    width: 60%;
+    margin: auto;
+  }
+  .voteDownButton {
+    font-size: 2vh;
+  }
+  .voteUpButton {
+    font-size: 2vh;
+  }
+ }

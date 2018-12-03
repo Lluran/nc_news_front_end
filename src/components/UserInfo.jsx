@@ -5,7 +5,8 @@ import User from './User';
 import * as api from '../api';
 import './Comments.css';
 import './User.css';
-import {navigate} from '@reach/router'
+import {navigate} from '@reach/router';
+import loading from '../assets/loading.svg';
 
 class UserInfo extends Component {
   state = {
@@ -18,7 +19,7 @@ class UserInfo extends Component {
       return articleObj.created_by.username === user.username;
     });
     if (isLoading) {
-      return <p>Loading...</p>;
+      return (<div className="loading"><img className="loadingImg" src={loading} alt='loading logo' /></div>);
     }
     return (
       <section className="userContainer">
