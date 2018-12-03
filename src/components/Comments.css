@@ -78,3 +78,12 @@
   align-content: center;
   margin: 1vw auto;
 }
+
+@media (max-width: 1273px) {
+  .deleteCommentButton {
+    width: 40%;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+ }

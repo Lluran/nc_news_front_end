@@ -44,23 +44,7 @@
   align-content: space-between;
 }
 
-@media (max-width: 1000px) {
-  .TopicSelector {
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    font-size: 2.7vh;
-    background-color: rgb(184, 6, 6);
-    border-radius: 10px;
-    border-style: double;
-    border-color: black;
-    padding-left: 1vw;
-    overflow: scroll;
-    scroll-behavior: smooth;
-    width: 95%;
-  }
+@media (max-width: 1273px) {
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 10px;
@@ -68,7 +52,7 @@
 
   ::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 1);
     -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
   }
   .topicBarNav {
@@ -78,17 +62,16 @@
     align-items: center;
     align-content: space-between;
     width: 80%;
+    overflow: scroll;
+    scroll-behavior: smooth
   }
   .topicLink {
-    display: inline;
-    border-style: double;
-    border-color: white;
-    max-width: 30%;
-    margin: 1vw;
+    margin: 1vw 40px;
+    font-size: 2.5vh;
     padding-top: 10px;
-    color: white;
-    text-shadow: 1px 1px 0 rgb(184, 6, 6), -1px -1px 0 #000, 1px -1px 0 #000,
-      -1px 1px 0 #000, 1px 1px 0 #000;
-    transition: 0.2s;
+  }
+  .topicTitle {
+    margin-left: 4px;
+    font-size: 3vh;
   }
 }

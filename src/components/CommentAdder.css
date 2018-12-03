@@ -71,3 +71,9 @@
   overflow: scroll;
   height: 98%;
 }
+
+@media (max-width: 1273px) { 
+  .commentSubmitButton {
+    width: 40%;
+  }
+}
