@@ -4,7 +4,7 @@ Northcoders News is a social news aggregation, web content rating, and discussio
 
 Northcoders News has articles which are divided into topics. Each article has user curated ratings and can be up or down voted using the API. Users can also add comments about an article. Comments can also be up or down voted. A user can add comments and remove any comments which they have added.
 
-A deployed version of this project can be found here:
+A deployed version of this project can be found here: (https://northcoders-news-api-front-end.netlify.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
