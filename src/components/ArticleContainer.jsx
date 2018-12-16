@@ -6,7 +6,7 @@ import CommentsContainer from './CommentsContainer';
 import * as api from '../api';
 import { Link, navigate } from '@reach/router';
 import './CommentAdder.css';
-import loading from '../assets/loading.svg'
+import loading from '../assets/loading.svg';
 
 class ArticleContainer extends Component {
   state = {
@@ -18,7 +18,11 @@ class ArticleContainer extends Component {
     const { article, comments, isLoading } = this.state;
     const { article_id, user } = this.props;
     if (isLoading) {
-      return (<div className="loading"><img className="loadingImg" src={loading} alt='loading logo' /></div>)
+      return (
+        <div className="loading">
+          <img className="loadingImg" src={loading} alt="loading logo" />
+        </div>
+      );
     }
     return (
       <section className="articleContainer">
@@ -83,16 +87,17 @@ class ArticleContainer extends Component {
                 code,
                 msg
               }
-            })
+            });
           });
       });
   }
 
   ammendComment = (commentID, direction) => {
-    const commentToUpdate = this.state.comments.filter(commentObj => {
+    const prevComments = [...this.state.comments];
+    const commentToUpdate = prevComments.filter(commentObj => {
       return commentObj._id === commentID;
     });
-    const otherComments = this.state.comments.filter(commentObj => {
+    const otherComments = prevComments.filter(commentObj => {
       return commentObj._id !== commentID;
     });
     let updatedComments = [];
