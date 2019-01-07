@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import * as api from '../api';
-import { navigate, Link } from '@reach/router';
-import './AddArticle.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import * as api from "../api";
+import { navigate, Link } from "@reach/router";
+import "./AddArticle.css";
 
 class AddArticle extends Component {
   state = {
-    title: '',
-    body: '',
-    err: ''
+    title: "",
+    body: "",
+    err: ""
   };
   render() {
     const { user } = this.props;
@@ -24,7 +24,7 @@ class AddArticle extends Component {
           >
             {err.length > 0 && <p className="addArticleErrorMsg">{err}</p>}
             <label htmlFor="titleInput" className="addArticleLabel">
-              Title:{' '}
+              Title:{" "}
             </label>
             <input
               className="addArticleContent"
@@ -35,7 +35,7 @@ class AddArticle extends Component {
               onChange={this.handleInput}
             />
             <label htmlFor="articleBodyInput" className="addArticleLabel">
-              Write your article here:{' '}
+              Write your article here:{" "}
             </label>
             <textarea
               name="body"
@@ -53,10 +53,10 @@ class AddArticle extends Component {
         )}
         {user.length === 0 && (
           <p className="loginReminder">
-            You need to{' '}
+            You need to{" "}
             <Link className="loginReminderLink" to="/login">
               login
-            </Link>{' '}
+            </Link>{" "}
             to post an article!
           </p>
         )}
@@ -75,7 +75,7 @@ class AddArticle extends Component {
     event.preventDefault();
     if (this.state.body.length === 0 || this.state.title.length === 0) {
       this.setState({
-        err: 'Your article needs a title and body!'
+        err: "Your article needs a title and body!"
       });
     } else {
       const newArticle = {
@@ -87,30 +87,27 @@ class AddArticle extends Component {
         .postArticle(newArticle, this.props.slug)
         .then(insertedArticle => {
           this.setState({
-            err: ''
+            err: ""
           });
           return navigate(`/topics/${this.props.slug}/articles`);
         })
-        .then(postedArticle => {
-          this.props.updateArticles(postedArticle);
-        }).catch(err => {
+        .catch(err => {
           const msg = err.response.data.msg;
           const code = err.response.status;
-          navigate('/error', {
+          navigate("/error", {
             replace: false,
             state: {
               code,
               msg
             }
-          })
-        })
+          });
+        });
     }
   };
 }
 
 AddArticle.propTypes = {
-  user: PropTypes.string.isRequired,
-  updateArticles: PropTypes.func.isRequired
+  user: PropTypes.string.isRequired
 };
 
 export default AddArticle;

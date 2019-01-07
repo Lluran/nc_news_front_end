@@ -8,6 +8,18 @@
   width: 95%;
 }
 
+.sortLabel {
+  color: white;
+  text-align: center;
+  display: inherit;
+  font-size: 2.5vh;
+}
+
+.sort {
+  margin-left: 10px;
+  font-size: 2vh;
+}
+
 .headingAndArticles {
   height: 95%;
   display: flex;
@@ -17,7 +29,7 @@
   align-items: center;
 }
 
-@media (max-width: 1273px) { 
+@media (max-width: 1273px) {
   .headingAndArticles {
     flex-direction: column;
     justify-content: flex-start;
