@@ -25,6 +25,9 @@ class ArticlesContainer extends Component {
         <label className="sortLabel" htmlFor="sort">
           Sort By:
           <select className="sort" onChange={event => this.handleSort(event)}>
+            <option value={""} selected>
+              Select an option
+            </option>
             <option value="date">Date (Newest First)</option>
             <option value="rating">Rating (Highest Rated First)</option>
           </select>
